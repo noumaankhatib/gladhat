@@ -1,0 +1,252 @@
+/* ===================================================
+   GLADHAT DESIGN SYSTEM — VARIABLES & TOKENS
+   Primitives at root; semantic aliases for components.
+   Approved palette: Paper, Ink, Signal, Electric, Sky
+   =================================================== */
+
+:root {
+  /* ── Primitives (single source of truth) ─────── */
+  --color-paper:         #FFFDF8;
+  --color-ink:           #17213B;
+  --color-signal:        #FF7A00;
+  --color-electric:      #3155FF;
+  --color-sky:           #E8F0FF;
+  --color-white:         #FFFFFF;
+  --color-ink-deep:      #0F1628;
+  --color-ink-muted-hex: #4A5568;
+  --color-ink-subtle-hex:#6B7280;
+  --color-accent-hover-hex: #FF9333;
+  --color-accent-dark-hex:  #CC6200;
+
+  /* ── Semantic surfaces ───────────────────────── */
+  --surface:             var(--color-paper);
+  --surface-raised:      var(--color-white);
+  --surface-sunken:      var(--color-sky);
+  --ink:                 var(--color-ink);
+  --ink-muted:           var(--color-ink-muted-hex);
+  --ink-subtle:          var(--color-ink-subtle-hex);
+  --accent:              var(--color-signal);
+  --accent-hover:        var(--color-accent-hover-hex);
+  --accent-soft:         rgba(255, 122, 0, 0.08);
+  --electric-soft:       oklch(94% 0.04 265);
+  --cool-wash:           linear-gradient(
+                           165deg,
+                           oklch(96% 0.025 250) 0%,
+                           oklch(94% 0.04 255) 100%
+                         );
+  --border:              rgba(23, 33, 59, 0.12);
+  --border-strong:       rgba(23, 33, 59, 0.22);
+
+  /* ── Legacy aliases (keep during migration) ──── */
+  --color-cream-guide:   #F7F3EC;
+  --color-navy-guide:    #1C2B45;
+  --color-orange-guide:  #E4622C;
+  --color-blue-guide:    #1F5FE0;
+
+  --color-bg:            var(--surface);
+  --color-bg-alt:        var(--surface-sunken);
+  --color-bg-elevated:   var(--surface-raised);
+  --color-bg-card:       var(--surface-raised);
+  --color-surface:       var(--surface-raised);
+  --color-border:        var(--border);
+  --color-border-subtle: rgba(23, 33, 59, 0.06);
+  --color-border-hover:  rgba(255, 122, 0, 0.45);
+
+  --color-text:          var(--ink);
+  --color-text-muted:    var(--ink-muted);
+  --color-text-subtle:   var(--ink-subtle);
+  --color-heading:       var(--ink);
+  --color-on-ink:        var(--surface);
+  --color-on-electric:   var(--color-white);
+
+  --color-accent:        var(--accent);
+  --color-accent-light:  var(--accent-hover);
+  --color-accent-dark:   var(--color-accent-dark-hex);
+  --color-accent-glow:   rgba(255, 122, 0, 0.16);
+
+  --color-gold:          var(--accent);
+  --color-gold-light:    var(--accent-hover);
+  --color-warm:          var(--accent);
+  --color-warm-soft:     var(--accent-soft);
+
+  --color-success:       #2F9E6B;
+  --color-info:          var(--color-electric);
+
+  /* ── Gradients ─────────────────────────────── */
+  --gradient-gold:       var(--accent);
+  --gradient-gold-text:  var(--accent);
+  --gradient-dark:       linear-gradient(180deg, var(--ink) 0%, var(--color-ink-deep) 100%);
+  --gradient-hero:         radial-gradient(ellipse at 88% 12%, oklch(58% 0.18 265 / 0.08) 0%, transparent 46%),
+                           radial-gradient(ellipse at 8% 80%, oklch(72% 0.18 55 / 0.06) 0%, transparent 42%);
+  --gradient-wash-sky:     linear-gradient(
+                             180deg,
+                             oklch(95% 0.03 250) 0%,
+                             oklch(96% 0.02 250 / 0.35) 100%
+                           );
+  --gradient-key-values:   radial-gradient(
+                             ellipse 80% 60% at 50% 0%,
+                             oklch(94% 0.04 250 / 0.65) 0%,
+                             transparent 70%
+                           );
+  --gradient-section:    none;
+  --gradient-card:       none;
+
+  /* Subtle film grain — dither pale gradients (≈3% overlay) */
+  --noise-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* ── Typography — families ─────────────────── */
+  --font-body:      'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading:   'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body-fallback:    'Segoe UI', system-ui, sans-serif;
+  --font-heading-fallback: Georgia, 'Times New Roman', serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Fluid type scale (~1.25 mobile → ~1.333 desktop) */
+  --step--1: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+  --step-0:  clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --step-1:  clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --step-2:  clamp(1.25rem, 1.1rem + 0.65vw, 1.5rem);
+  --step-3:  clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
+  --step-4:  clamp(1.875rem, 1.5rem + 1.6vw, 2.65rem);
+  --step-5:  clamp(2.25rem, 1.75rem + 2.2vw, 3.5rem);
+  --step-6:  clamp(2.75rem, 2rem + 3vw, 4.5rem);
+
+  /* Legacy fs scale (mapped to steps) */
+  --fs-xs:    var(--step--1);
+  --fs-sm:    var(--step-0);
+  --fs-base:  var(--step-0);
+  --fs-md:    var(--step-1);
+  --fs-lg:    var(--step-2);
+  --fs-xl:    var(--step-3);
+  --fs-2xl:   var(--step-4);
+  --fs-3xl:   var(--step-5);
+  --fs-4xl:   var(--step-6);
+  --fs-5xl:   clamp(3rem, 2.25rem + 3.5vw, 3.75rem);
+  --fs-hero:  clamp(2.75rem, 6vw + 1rem, 5.25rem);
+  --fs-display: clamp(3.25rem, 8vw + 1rem, 7rem);
+
+  --type-hero:     var(--fs-hero);
+  --type-heading:  var(--step-5);
+  --type-body:     var(--step-0);
+  --type-body-lg:  var(--step-1);
+  --type-display:  var(--step-6);
+
+  --lh-display: 1.05;
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-body:    1.6;
+  --lh-relaxed: 1.75;
+
+  --fw-light:    400;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  --ls-tight:   -0.03em;
+  --ls-display: -0.03em;
+  --ls-heading: -0.025em;
+  --ls-normal:  0;
+  --ls-wide:    0.04em;
+  --ls-wider:   0.08em;
+  --ls-widest:  0.12em;
+  --ls-eyebrow: 0.12em;
+
+  --measure-prose: 62ch;
+
+  /* ── Spacing — geometric scale ───────────────── */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Legacy space aliases */
+  --space-xs:   var(--space-1);
+  --space-sm:   var(--space-2);
+  --space-md:   var(--space-4);
+  --space-lg:   var(--space-6);
+  --space-xl:   var(--space-8);
+  --space-2xl:  var(--space-12);
+  --space-3xl:  var(--space-16);
+  --space-4xl:  6rem;
+  --space-5xl:  8rem;
+  --space-6xl:  10rem;
+
+  --section-y: clamp(5rem, 10vw, 9rem);
+
+  /* ── Layout ────────────────────────────────── */
+  --content-max: 75rem;
+  --gutter:      clamp(1.25rem, 5vw, 4rem);
+  --container-sm:   40rem;
+  --container-md:   48rem;
+  --container-lg:   60rem;
+  --container-xl:   var(--content-max);
+  --container-max:  87.5rem;
+  --content-width:  42.5rem;
+
+  --header-height:  5.25rem;
+
+  /* ── Radius ────────────────────────────────── */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-2xl:  2.5rem;
+  --radius-pill: 9999px;
+  --radius-full: var(--radius-pill);
+
+  /* ── Elevation (layered, navy-tinted) ──────── */
+  --elevation-1:
+    0 1px 2px rgba(23, 33, 59, 0.05),
+    0 4px 14px rgba(23, 33, 59, 0.06);
+  --elevation-2:
+    0 2px 4px rgba(23, 33, 59, 0.06),
+    0 12px 32px rgba(23, 33, 59, 0.08);
+  --elevation-3:
+    0 4px 8px rgba(23, 33, 59, 0.07),
+    0 24px 56px rgba(23, 33, 59, 0.11);
+
+  --shadow-sm:      var(--elevation-1);
+  --shadow-md:      var(--elevation-2);
+  --shadow-lg:      var(--elevation-3);
+  --shadow-xl:      var(--elevation-3);
+  --shadow-glow:    0 8px 28px rgba(255, 122, 0, 0.22);
+  --shadow-glow-lg: 0 16px 48px rgba(49, 85, 255, 0.16);
+  --shadow-card:    var(--elevation-1);
+
+  /* ── Motion ────────────────────────────────── */
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-luxury:  var(--ease-out);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --dur-fast:     150ms;
+  --dur-base:     300ms;
+  --dur-slow:     600ms;
+  --dur-reveal:   800ms;
+  --duration-fast:    var(--dur-fast);
+  --duration-normal:  var(--dur-base);
+  --duration-slow:    var(--dur-slow);
+  --duration-slower:  var(--dur-reveal);
+  --duration-cinematic: 0.9s;
+
+  /* ── Z-index ───────────────────────────────── */
+  --z-base:     1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-fixed:    300;
+  --z-modal:    400;
+  --z-overlay:  500;
+
+  /* ── Scrollbar ─────────────────────────────── */
+  --scrollbar-size:        0.625rem;
+  --scrollbar-track:       var(--surface);
+  --scrollbar-thumb:       rgba(23, 33, 59, 0.22);
+  --scrollbar-thumb-hover: var(--accent);
+}

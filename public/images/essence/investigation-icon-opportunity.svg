@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="opp-stone" x1="10" y1="16" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c4cad4"/>
+      <stop offset="1" stop-color="#707784"/>
+    </linearGradient>
+    <linearGradient id="opp-top" x1="24" y1="18" x2="48" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb066"/>
+      <stop offset="1" stop-color="#ff7a00"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 48h16V36H10v12Z" fill="url(#opp-stone)"/>
+  <path d="M26 48h16V28H26v20Z" fill="url(#opp-stone)"/>
+  <path d="M42 48h12V18H42v30Z" fill="url(#opp-stone)"/>
+  <path d="M42 18h12v8H42v-8Z" fill="url(#opp-top)"/>
+  <path d="M10 48h44" stroke="#17213b" stroke-opacity="0.14" stroke-width="1"/>
+  <path d="M42 26h12M26 36h16M10 48h16" stroke="#17213b" stroke-opacity="0.08" stroke-width="0.75"/>
+  <ellipse cx="48" cy="22" rx="3" ry="1.5" fill="#fff" fill-opacity="0.28"/>
+</svg>

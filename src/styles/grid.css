@@ -1,0 +1,41 @@
+/* ===================================================
+   GLADHAT — Layout grid & column breakout
+   content / wide / full named columns
+   =================================================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--gutter), 1fr)
+    [wide-start] minmax(0, calc((100% - var(--content-max)) / 2))
+    [content-start] min(100%, var(--content-max))
+    [content-end] minmax(0, calc((100% - var(--content-max)) / 2))
+    [wide-end] minmax(var(--gutter), 1fr)
+    [full-end];
+  width: 100%;
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.content-grid > .grid-wide,
+.content-grid > [data-grid="wide"] {
+  grid-column: wide;
+}
+
+.content-grid > .grid-full,
+.content-grid > [data-grid="full"] {
+  grid-column: full;
+}
+
+/* Hero / full-bleed media without negative margins */
+.grid-full-bleed {
+  grid-column: full;
+  width: 100%;
+}
+
+.grid-wide-bleed {
+  grid-column: wide;
+  width: 100%;
+}

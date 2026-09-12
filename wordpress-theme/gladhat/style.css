@@ -1,0 +1,13 @@
+/*
+Theme Name: Gladhat
+Theme URI: https://gladhat.com
+Author: Gladhat
+Description: Content-managed WordPress theme that preserves the approved Gladhat frontend design. Original Vite/JavaScript site remains untouched in the project root.
+Version: 1.0.40
+Requires at least: 6.4
+Tested up to: 6.8
+Requires PHP: 8.1
+Text Domain: gladhat
+*/
+
+/* Design CSS is loaded from assets/css/ — do not add layout or typography here. */

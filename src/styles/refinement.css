@@ -1,0 +1,485 @@
+/* ===================================================
+   GLADHAT — Editorial refinement (spacing, motion, polish)
+   =================================================== */
+
+/* ── Section rhythm — tighter, editorial ───── */
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.scrolly-section {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-4xl);
+}
+
+.scrolly-sync-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4xl);
+}
+
+.whatif-section {
+  padding: var(--space-4xl) 0 var(--space-5xl);
+}
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-header__label {
+  letter-spacing: 0.18em;
+  margin-bottom: var(--space-sm);
+  opacity: 0.85;
+}
+
+.section-header__title {
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin-bottom: var(--space-sm);
+}
+
+.section-header__text {
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-style: normal;
+  font-weight: var(--fw-regular);
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-text-muted);
+}
+
+/* ── Prose — compact, clear philosophy blocks ─ */
+
+.scrolly-section .split__text.prose {
+  max-width: 34rem;
+}
+
+.scrolly-section .split__text.prose p,
+.scrolly-section .scrolly-details p {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.62;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+}
+
+.scrolly-section .scrolly-desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--color-heading);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-md);
+  max-width: 34rem;
+  padding-left: var(--space-sm);
+  border-left: 1px solid rgba(255, 122, 0, 0.55);
+}
+
+.scrolly-section .scrolly-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  opacity: 1;
+  max-height: none;
+  overflow: visible;
+  padding-top: var(--space-md);
+  margin-top: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.scrolly-section .scrolly-details p {
+  color: var(--color-text-muted);
+}
+
+.scrolly-section .scrolly-details p:last-child {
+  margin-top: 0.125rem;
+  color: var(--color-heading);
+  font-weight: var(--fw-medium);
+}
+
+.scrolly-section .scrolly-details p:last-child strong {
+  color: var(--color-accent-light);
+  font-weight: var(--fw-semibold);
+}
+
+.prose-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+}
+
+.prose-list li {
+  color: var(--color-text-muted);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.prose-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.prose-tag {
+  border: 1px solid rgba(255, 122, 0, 0.32);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  background: rgba(255, 122, 0, 0.05);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+}
+
+.prose-tag:hover {
+  border-color: rgba(255, 122, 0, 0.45);
+  background: rgba(255, 122, 0, 0.06);
+}
+
+/* ── Audio prompt — less vertical bulk ─────── */
+
+.audio-prompt {
+  margin-bottom: var(--space-xl);
+}
+
+.scrolly-section .audio-prompt {
+  margin-bottom: var(--space-md);
+}
+
+/* ── Scroll reveal — cinematic, restrained ─── */
+
+.reveal {
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity var(--duration-cinematic) var(--ease-luxury),
+    transform var(--duration-cinematic) var(--ease-luxury);
+}
+
+.reveal.visible {
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal--delay-1 { transition-delay: 80ms; }
+.reveal--delay-2 { transition-delay: 160ms; }
+.reveal--delay-3 { transition-delay: 240ms; }
+.reveal--delay-4 { transition-delay: 320ms; }
+
+@keyframes philosophyFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes leadReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(-6px, 0, 0);
+    border-left-color: rgba(255, 122, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    border-left-color: var(--color-accent);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.reveal.visible .prose-stagger > *:not(.prose-list):not(.prose-tags):not(.scrolly-details),
+.reveal.visible .prose-stagger .prose-list li {
+  animation: philosophyFadeUp var(--duration-cinematic) var(--ease-luxury) both;
+}
+
+.reveal.visible .scrolly-desc {
+  animation: leadReveal 0.85s var(--ease-luxury) both;
+}
+
+.reveal.visible .scrolly-details p,
+.reveal.visible .scrolly-details .prose-list li {
+  animation: philosophyFadeUp 0.75s var(--ease-luxury) both;
+}
+
+.reveal.visible .scrolly-details p:nth-child(1),
+.reveal.visible .scrolly-details .prose-list li:nth-child(1) { animation-delay: 0.18s; }
+.reveal.visible .scrolly-details p:nth-child(2),
+.reveal.visible .scrolly-details .prose-list li:nth-child(2) { animation-delay: 0.24s; }
+.reveal.visible .scrolly-details p:nth-child(3),
+.reveal.visible .scrolly-details .prose-list li:nth-child(3) { animation-delay: 0.3s; }
+.reveal.visible .scrolly-details p:nth-child(4),
+.reveal.visible .scrolly-details .prose-list li:nth-child(4) { animation-delay: 0.36s; }
+.reveal.visible .scrolly-details p:nth-child(5),
+.reveal.visible .scrolly-details .prose-list li:nth-child(5) { animation-delay: 0.42s; }
+.reveal.visible .scrolly-details p:nth-child(6),
+.reveal.visible .scrolly-details .prose-list li:nth-child(6) { animation-delay: 0.48s; }
+.reveal.visible .scrolly-details p:nth-child(7),
+.reveal.visible .scrolly-details .prose-list li:nth-child(7) { animation-delay: 0.54s; }
+.reveal.visible .scrolly-details p:nth-child(8),
+.reveal.visible .scrolly-details .prose-list li:nth-child(8) { animation-delay: 0.6s; }
+
+.scrolly-section .split__image.reveal,
+.whatif-section .split__image.reveal {
+  transition: none;
+}
+
+.scrolly-section .split__image.reveal:not(.visible),
+.whatif-section .split__image.reveal:not(.visible) {
+  opacity: 0;
+}
+
+.scrolly-section .split__image.reveal.visible {
+  animation: imageReveal 1.05s var(--ease-luxury) both;
+}
+
+.scrolly-section .split__image.reveal.reveal--delay-2.visible {
+  animation-delay: 0.15s;
+}
+
+.whatif-section .split__image.reveal.visible {
+  animation: imageReveal 1.05s var(--ease-luxury) 0.12s both;
+}
+
+.reveal.visible .prose-stagger > *:nth-child(1) { animation-delay: 0.04s; }
+.reveal.visible .prose-stagger > *:nth-child(2) { animation-delay: 0.08s; }
+.reveal.visible .prose-stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.reveal.visible .prose-stagger > *:nth-child(4) { animation-delay: 0.16s; }
+.reveal.visible .prose-stagger > *:nth-child(5) { animation-delay: 0.2s; }
+.reveal.visible .prose-stagger > *:nth-child(6) { animation-delay: 0.24s; }
+.reveal.visible .prose-stagger > *:nth-child(7) { animation-delay: 0.28s; }
+.reveal.visible .prose-stagger > *:nth-child(8) { animation-delay: 0.32s; }
+.reveal.visible .prose-stagger > *:nth-child(9) { animation-delay: 0.36s; }
+.reveal.visible .prose-stagger > *:nth-child(10) { animation-delay: 0.4s; }
+.reveal.visible .prose-stagger > *:nth-child(11) { animation-delay: 0.44s; }
+.reveal.visible .prose-stagger > *:nth-child(12) { animation-delay: 0.48s; }
+
+/* ── Philosophy typography ─────────────────── */
+
+.scrolly-section .split {
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.scrolly-section .scrolly-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.625rem, 2.5vw + 0.5rem, 2.125rem);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  color: var(--color-heading);
+}
+
+.scrolly-section .scrolly-number {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 1;
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(255, 122, 0, 0.25);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* prose h2 adds 6rem top margin — reset for philosophy headings */
+.scrolly-section .prose .scrolly-title {
+  margin-top: 0;
+}
+
+.scrolly-section .accent,
+.whatif-section .accent,
+.whatif-section strong {
+  color: var(--color-accent-light);
+  font-weight: var(--fw-medium);
+}
+
+/* ── Image containers — editorial depth ──── */
+
+.scrolly-section .split__image,
+.whatif-section .split__image {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--elevation-2);
+  transition:
+    transform 0.85s var(--ease-luxury),
+    box-shadow 0.85s var(--ease-luxury);
+}
+
+.scrolly-section .split__image::before,
+.whatif-section .split__image::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(ellipse at 48% 42%, oklch(72% 0.12 55 / 0.07), transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scrolly-section .split__image img,
+.whatif-section .split__image img {
+  display: block;
+  width: 100%;
+  border-radius: calc(var(--radius-xl) - 1px);
+  box-shadow: none;
+  transition: transform 1s var(--ease-luxury);
+}
+
+.scrolly-section .split__image:hover,
+.whatif-section .split__image:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: var(--elevation-3);
+}
+
+.scrolly-section .split__image:hover img,
+.whatif-section .split__image:hover img {
+  transform: scale(1.015);
+}
+
+/* ── Hero & marquee ────────────────────────── */
+
+.hero--video .hero__content {
+  padding-top: var(--space-xl);
+}
+
+.marquee-container {
+  padding: var(--space-xl) 0;
+}
+
+.whatif-title {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, var(--fs-4xl));
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+}
+
+.whatif-section .split {
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.whatif-section .split__text {
+  max-width: none;
+  width: 100%;
+}
+
+.whatif-section .prose p {
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.whatif-section .highlight-text {
+  font-size: var(--fs-lg);
+  color: var(--color-ink);
+  font-weight: var(--fw-medium);
+}
+
+.whatif-section .separator {
+  margin: var(--space-xl) 0;
+}
+
+.whatif-section .cta-row {
+  margin-top: var(--space-xl);
+}
+
+/* ── Footer band — proportional ─────────────── */
+
+.footer-cta {
+  padding: var(--space-4xl) var(--space-xl);
+}
+
+.footer-cta__title {
+  margin-bottom: var(--space-xl);
+}
+
+.footer-main {
+  padding: var(--space-3xl) 0;
+}
+
+/* ── Responsive ──────────────────────────── */
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .scrolly-sync-container {
+    gap: var(--space-3xl);
+  }
+
+  .scrolly-section .split__image:hover,
+  .whatif-section .split__image:hover {
+    transform: none;
+  }
+
+  .scrolly-section .split__image:hover img,
+  .whatif-section .split__image:hover img {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transform: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .reveal.visible .prose-stagger > *,
+  .reveal.visible .prose-stagger .prose-list li,
+  .reveal.visible .scrolly-desc,
+  .reveal.visible .scrolly-details p,
+  .reveal.visible .scrolly-details .prose-list li,
+  .scrolly-section .split__image.reveal.visible,
+  .whatif-section .split__image.reveal.visible {
+    animation: none;
+  }
+
+  .scrolly-section .split__image:hover,
+  .whatif-section .split__image:hover {
+    transform: none;
+  }
+
+  .scrolly-section .split__image:hover img,
+  .whatif-section .split__image:hover img {
+    transform: none;
+  }
+
+  .floating {
+    animation: none;
+  }
+}

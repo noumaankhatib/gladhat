@@ -1,0 +1,185 @@
+/* Gladhat frontend behaviour — ported from src/main.js without the SPA router. */
+
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+}
+
+function bindScrollytelling() {
+  const steps = document.querySelectorAll('.scrolly-step');
+  const images = document.querySelectorAll('.scrolly-img');
+  const thumb = document.getElementById('scrolly-thumb');
+  const counter = document.getElementById('scrolly-current');
+
+  if (!steps.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const stepNum = parseInt(entry.target.getAttribute('data-step'), 10);
+
+        if (thumb) {
+          thumb.style.top = ((stepNum - 1) / (steps.length - 1)) * 100 + '%';
+        }
+
+        if (counter) {
+          counter.innerText = '0' + stepNum;
+        }
+
+        steps.forEach(s => s.classList.remove('active'));
+        entry.target.classList.add('active');
+
+        images.forEach(img => {
+          if (parseInt(img.getAttribute('data-img'), 10) === stepNum) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -40% 0px',
+    threshold: 0
+  });
+
+  steps.forEach(step => observer.observe(step));
+}
+
+function bindAudioPrompt() {
+  let activePrompt = null;
+  let activeAudio = null;
+
+  function setPromptState(btn, playing) {
+    btn.classList.toggle('audio-prompt--playing', playing);
+    btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    const label = btn.querySelector('.audio-prompt__text');
+    if (label) {
+      label.innerHTML = playing
+        ? '<span class="emoji">⏸️</span> Pause Reading'
+        : '<span class="emoji">🎧</span> Prefer to listen? I\'ll read it to you.';
+    }
+  }
+
+  function stopActive() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+      activeAudio = null;
+    }
+    if (activePrompt) {
+      setPromptState(activePrompt, false);
+      activePrompt = null;
+    }
+  }
+
+  const buttons = document.querySelectorAll('.audio-prompt[data-audio-text], .audio-prompt[data-audio-src]');
+
+  buttons.forEach(btn => {
+    const text = btn.getAttribute('data-audio-text');
+    const src = btn.getAttribute('data-audio-src');
+    if (!text && !src) return;
+
+    btn.addEventListener('click', () => {
+      const isPlaying = activePrompt === btn
+        && ((activeAudio && !activeAudio.paused) || ('speechSynthesis' in window && window.speechSynthesis.speaking));
+
+      if (isPlaying) {
+        stopActive();
+        return;
+      }
+
+      stopActive();
+
+      if (src) {
+        const audio = new Audio(src);
+        activeAudio = audio;
+        activePrompt = btn;
+        setPromptState(btn, true);
+        audio.addEventListener('ended', stopActive);
+        audio.addEventListener('error', stopActive);
+        audio.play().catch(() => stopActive());
+        return;
+      }
+
+      if (!text || !('speechSynthesis' in window)) return;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-GB';
+      utterance.rate = 0.95;
+      utterance.pitch = 0.95;
+
+      activePrompt = btn;
+      setPromptState(btn, true);
+
+      utterance.onend = stopActive;
+      utterance.onerror = stopActive;
+
+      window.speechSynthesis.speak(utterance);
+    });
+  });
+}
+
+function bindHeader() {
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  if (header) {
+    const isHome = header.classList.contains('site-header--over-hero');
+    const onScroll = () => {
+      const scrolled = window.scrollY > 40;
+      header.classList.toggle('site-header--scrolled', scrolled);
+      if (!isHome) {
+        header.classList.add('site-header--solid');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('menu-toggle--open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileNav.classList.toggle('mobile-nav--open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('menu-toggle--open');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove('mobile-nav--open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  bindHeader();
+  bindAudioPrompt();
+  bindScrollytelling();
+  requestAnimationFrame(() => initScrollReveal());
+});

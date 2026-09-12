@@ -1,0 +1,34 @@
+# Gladhat — Commercial Strategy & Positioning Consultancy
+
+> Commercial strategy, positioning, and clear communication for founders who value clear thinking. Founded by Michael Simkin.
+
+## Overview
+Gladhat is a boutique commercial strategy consultancy that helps B2B founders, tech leaders, and growing companies clarify their market positioning, articulate their unique value, and uncover hidden growth opportunities through deep customer insights and strategic messaging.
+
+## Founder
+- **Name**: Michael Simkin
+- **Role**: Commercial Strategy Consultant & Founder
+- **Email**: m@gladhat.com
+- **Website**: https://gladhat.com
+
+## Core Services & Philosophy
+- **Customer & Buyer Research**: Seeing through the buyer's eyes to uncover what customers actually value.
+- **Strategic Positioning**: Helping companies stand out by clarifying who they serve, what problem they solve, and why it matters.
+- **Commercial Messaging & Narrative**: Translating complex technology or services into intuitive, compelling stories for buyers and investors.
+- **Founder Advisory**: Serving as a respectful, outside strategic sounding board when business decisions feel stuck or complex.
+
+## Key Pages & Navigation
+- [Home Page](https://gladhat.com/): Overview of Gladhat's commercial strategy consulting services for founders.
+- [When to Talk](https://gladhat.com/when-we-should-talk): Critical moments when outside strategic perspective creates the most leverage.
+- [How I Work](https://gladhat.com/working-together): Collaborative, research-backed methodology built on listening, inquiry, and practical commercial execution.
+- [True Stories (Case Studies)](https://gladhat.com/work): Detailed case studies showing how strategic positioning transforms businesses.
+  - [Server Factory](https://gladhat.com/server-factory): Aligning positioning with buyer personas to reshape demand generation.
+  - [First Light](https://gladhat.com/firstlight): Translating a complex hardware & wellbeing tech vision into clear messaging.
+  - [Tonbo](https://gladhat.com/tonbo): Recognizing invisible strategic value and pricing expertise accurately.
+  - [enSights](https://gladhat.com/ensights): Connecting deep technical expertise with clear customer communication.
+  - [Provengo](https://gladhat.com/provengo): Simplifying complex systems engineering platforms for investors and buyers.
+  - [More Stories](https://gladhat.com/more-stories): Additional work across tech, education, and professional services.
+- [See Differently](https://gladhat.com/see-your-business-differently): Six reflective business exercises for founders to re-evaluate messaging, market assumptions, and positioning.
+- [About Michael Simkin](https://gladhat.com/about): Background, experience, and consultancy philosophy of Michael Simkin.
+- [Contact](https://gladhat.com/contact): Book a strategic introduction conversation with Michael.
+- [Thoughts / Blog](https://gladhat.com/theblog): Essays and strategic insights on positioning, buyer psychology, and commercial strategy.

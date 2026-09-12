@@ -1,0 +1,118 @@
+/* ===================================================
+   GLADHAT — First Light Story
+   =================================================== */
+
+import { getStory } from '../services/content-service.js';
+import { applyCmsStory } from '../utils/page-compose.js';
+
+export async function FirstLightPage() {
+  const html = `
+    <section class="hero" id="fl-hero" style="min-height: 55vh;">
+      <div class="hero__bg"></div>
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__label">True Story — First Light</span>
+          <h1 class="hero__title">Finding the Right <span class="accent">Language</span></h1>
+          <p class="hero__subtitle">
+            How research and close collaboration translated a vision connecting technology, nature and wellbeing into a clear name, message and brand.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fl-opening">
+      <div class="container">
+        <div class="prose reveal">
+          <p>Professor Amit Zoran came to me with something more valuable than a conventional brief: a distinctive vision.</p>
+          <p>It brought together technology, nature, education and wellbeing in a way I had not encountered before. Instead of treating technology as something that inevitably distracts us from ourselves, Amit believed it could help us become more present, more aware and more connected with the natural world.</p>
+          <p class="highlight-text">The challenge was not creating the idea. It was finding language that allowed other people to understand and feel it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="fl-beginning">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>Beginning with the idea</h2>
+          <p>From a communications perspective, we needed to understand what problems Amit's method was targeting.</p>
+          <p>What are the problems caused by our daily use of tech?</p>
+          <p>How are people already looking for help?</p>
+          <p>Where is Amit's method different?</p>
+          <p>What should someone feel after encountering Amit's website and social media?</p>
+          <p>These were the first questions.</p>
+          <p class="highlight-text">The more we explored it together, this was a translation project as much as a branding project.</p>
+          <p>In the sense that an amazing vision already existed. Our job was to translate it into language that other people could immediately understand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fl-beyond">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>Looking beyond the obvious</h2>
+          <p>As I explored the wider landscape, I noticed something interesting.</p>
+          <p>Many conversations about technology and wellbeing seemed to force people into choosing between two opposing ideas.</p>
+          <p>Technology was either the problem.</p>
+          <p>Or it was the solution.</p>
+          <p>Neither reflected Amit's thinking.</p>
+          <p>His vision wasn't about escaping technology. Nor was it about celebrating technology for its own sake. It was about using technology thoughtfully, as a way of helping people reconnect with themselves, with nature and with the present moment.</p>
+          <p class="highlight-text">That distinction changed everything.</p>
+          <p>It wasn't simply a positioning statement.</p>
+          <p>It became the philosophy that shaped every decision that followed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="fl-language">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>Finding the right language</h2>
+          <p>Once we understood the essence of the project, the creative work became surprisingly natural.</p>
+          <p>The name <strong>First Light</strong> emerged because it captured exactly what the project represented.</p>
+          <p>The quiet beginning of awareness. The first moment of seeing differently. The start of a journey rather than its destination.</p>
+          <p>The tagline followed.</p>
+          <div class="blockquote">Come Home.</div>
+          <p>Not to a building. Not to a place. To yourself. To the feeling of being alive that connects all beings.</p>
+          <p>Alongside the name and tagline came the wider brand story, the messaging, the website and the launch communications.</p>
+          <p class="highlight-text">The ideas that emerged reflected something that was already there. We weren't inventing an identity. We were uncovering one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fl-experience">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>From brand to experience</h2>
+          <p>The website didn't need to explain everything. It needed to invite people into the pathways Amit had uncovered.</p>
+          <p>In its clarity, the messaging was calm and simple. It spoke to real needs.</p>
+          <p>Amit's visual identity beautifully supported his philosophy. Every piece of communication became another expression of the same central idea.</p>
+          <p class="highlight-text">We can't realistically return to nature by getting rid of technology; we can use technology to rediscover nature and dance with both.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="fl-lessons">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>What this project taught me</h2>
+          <p>Working with Amit was unusual and rewarding. He moves easily between design, software, philosophy and research, producing ideas faster than most people could absorb them.</p>
+          <p>The challenge was not generating possibilities. It was deciding which ideas would help an unfamiliar audience understand First Light and recognise why it mattered.</p>
+          <p class="highlight-text">Research gave us the filter. Once the picture became clear, the name, messages and design direction became simpler. Everything began to work together.</p>
+
+          <div style="margin-top: var(--space-3xl); display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
+            <a href="/contact" class="btn btn--primary" id="fl-cta">Let's Talk <span class="btn-arrow">→</span></a>
+            <a href="/tonbo" class="btn btn--outline" id="fl-next">Read the Tonbo story <span class="btn-arrow">→</span></a>
+            <a href="/work" class="text-link" id="fl-back">← Back to True Stories</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  return applyCmsStory(await getStory('firstlight'), html, {
+    id: 'fl-hero',
+    label: 'True Story — First Light',
+    titleHtml: 'Finding the Right <span class="accent">Language</span>',
+    subtitle: 'How research and close collaboration translated a vision connecting technology, nature and wellbeing into a clear name, message and brand.',
+  });
+}

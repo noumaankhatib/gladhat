@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="notice-stone" x1="14" y1="10" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d1d5db"/>
+      <stop offset="1" stop-color="#6b7280"/>
+    </linearGradient>
+    <radialGradient id="notice-core" cx="0" cy="0" r="1" gradientTransform="matrix(0 14 -14 0 32 34)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd099"/>
+      <stop offset="0.55" stop-color="#ff7a00"/>
+      <stop offset="1" stop-color="#cc6200"/>
+    </radialGradient>
+    <filter id="notice-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M18 18h28l6 8v22H12V26l6-8Z" fill="url(#notice-stone)"/>
+  <path d="M46 18 40 26H18l6-8h28Z" fill="#9ca3af"/>
+  <path d="M12 26h40v4H12v-4Z" fill="#17213b" fill-opacity="0.08"/>
+  <circle cx="32" cy="34" r="9" fill="url(#notice-core)" filter="url(#notice-glow)"/>
+  <path d="M28 30h8M30 34h4M28 38h8" stroke="#fff" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

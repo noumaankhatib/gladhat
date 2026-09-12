@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="assume-ring" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e5e7eb"/>
+      <stop offset="1" stop-color="#737986"/>
+    </linearGradient>
+    <radialGradient id="assume-glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 16 -16 0 32 32)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd099" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#ff7a00" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#ff7a00" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="assume-blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <circle cx="32" cy="32" r="14" fill="url(#assume-glow)" filter="url(#assume-blur)"/>
+  <path d="M32 8c13.255 0 24 10.745 24 24S45.255 56 32 56 8 45.255 8 32 18.745 8 32 8Zm0 8c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16Z" fill="url(#assume-ring)"/>
+  <circle cx="32" cy="32" r="10" fill="url(#assume-glow)" fill-opacity="0.75"/>
+  <ellipse cx="24" cy="22" rx="4" ry="2.5" fill="#fff" fill-opacity="0.22" transform="rotate(-24 24 22)"/>
+</svg>

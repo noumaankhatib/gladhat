@@ -1,0 +1,18 @@
+# Serve the Vite SPA before WordPress index.php at the domain root.
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # WordPress CMS — never send to the SPA
+  RewriteRule ^cms(/|$) - [L]
+
+  # Existing files and directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # SPA fallback for Vite routes
+  RewriteRule . /index.html [L]
+</IfModule>

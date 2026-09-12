@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="choose-grey" x1="8" y1="12" x2="56" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b8bec8"/>
+      <stop offset="1" stop-color="#6b7280"/>
+    </linearGradient>
+    <linearGradient id="choose-orange" x1="32" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb066"/>
+      <stop offset="1" stop-color="#ff7a00"/>
+    </linearGradient>
+    <radialGradient id="choose-shadow" cx="0" cy="0" r="1" gradientTransform="matrix(0 24 -24 0 32 34)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17213b" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#17213b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="32" cy="54" rx="18" ry="4" fill="url(#choose-shadow)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#choose-grey)"/>
+  <path d="M32 10a22 22 0 0 1 0 44V10Z" fill="url(#choose-orange)"/>
+  <path d="M32 10v44" stroke="#17213b" stroke-opacity="0.12" stroke-width="0.75"/>
+  <ellipse cx="24" cy="22" rx="5" ry="3" fill="#fff" fill-opacity="0.35" transform="rotate(-18 24 22)"/>
+</svg>

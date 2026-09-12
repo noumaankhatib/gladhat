@@ -1,0 +1,99 @@
+/* ===================================================
+   GLADHAT — enSights Story
+   =================================================== */
+
+import { getStory } from '../services/content-service.js';
+import { applyCmsStory } from '../utils/page-compose.js';
+
+export async function EnSightsPage() {
+  const html = `
+    <section class="hero" id="en-hero" style="min-height: 55vh;">
+      <div class="hero__bg"></div>
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__label">True Story — enSights</span>
+          <h1 class="hero__title">Connecting Expertise with <span class="accent">Understanding</span></h1>
+          <p class="hero__subtitle">
+            How technical expertise and persistent questioning became clearer thought leadership, customer communication and commercial outreach.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="en-opening">
+      <div class="container">
+        <div class="prose reveal">
+          <p>When I first started working with enSights, the technology was not unique, but it was certainly ahead of the curve.</p>
+          <p>enSights is a SaaS platform that helps organisations operating solar assets improve performance, identify faults and make better operational decisions.</p>
+          <p>The startup was already doing business and had a growing list of clients. The communications challenge was helping people understand why enSights mattered.</p>
+          <p>The team understood their product inside out. Explaining its multiple benefits to potential customers in written and visual communications was harder.</p>
+          <p>Like many software companies, the language naturally drifted towards features and capabilities.</p>
+          <p class="highlight-text">The more interesting question was different. How do you break through the noise to communicate with the various types of people who are responsible for investing in, building and operating renewable energy sites?</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="en-language">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>Speaking the customer's language</h2>
+          <p>We explored existing messaging. Not because it was poor, but because it did not always reflect the conversations customers were actually having.</p>
+          <p>We discussed positioning.</p>
+          <p>Taglines.</p>
+          <p>The fundamental problems the business solved.</p>
+          <p>The language people used inside the industry.</p>
+          <p class="highlight-text">Slowly, the focus shifted away from describing software features, towards looking at the daily challenges faced by asset owners and operators.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="en-conversation">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>The best work happened in conversation</h2>
+          <p>A key part of the project was positioning enSights as industry insiders who understand the concerns of renewable energy asset owners and operators.</p>
+          <p>The chosen method was LinkedIn articles. The content was semi-technical.</p>
+          <p>Clearly, I'm no engineer. I wasn't hired because I understood every technical detail. The articles worked because they were written by me, collaborating with their business development director. We'd choose a technical topic. He'd explain it from the perspective of someone with years of industry experience. I'd keep asking questions. Why does that matter? What problem does it solve? Why should an operator care?</p>
+          <p class="highlight-text">By the end of the conversation, I understood enough to write for the audience.</p>
+          <p>The articles became clearer because they reflected both market know-how, technical expertise and curiosity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="en-beyond">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>Beyond content</h2>
+          <p>As the relationship developed, the work expanded.</p>
+          <p>I interviewed customers and created videos.</p>
+          <p>I supported business development by reaching out to organisations operating solar assets, helping generate meetings that opened new commercial conversations.</p>
+          <p>None of those activities had been part of a grand plan.</p>
+          <p class="highlight-text">They emerged because we kept asking the same question: What would help the business communicate more clearly with the customers it wanted to reach?</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="en-lessons">
+      <div class="container">
+        <div class="prose reveal">
+          <h2>What this project taught me</h2>
+          <p>When someone is willing to keep asking, "Why does that matter?" and someone technical is willing to keep explaining, complicated subjects become easier to understand. This way, businesses begin to communicate more naturally and expertise becomes translatable.</p>
+          <p class="highlight-text">Sometimes my role isn't just to provide the answers; it's first to create the conditions in which better answers can emerge.</p>
+
+          <div style="margin-top: var(--space-3xl); display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
+            <a href="/contact" class="btn btn--primary" id="en-cta">Let's Talk <span class="btn-arrow">→</span></a>
+            <a href="/provengo" class="btn btn--outline" id="en-next">Read the Provengo story <span class="btn-arrow">→</span></a>
+            <a href="/work" class="text-link" id="en-back">← Back to True Stories</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+
+  return applyCmsStory(await getStory('ensights'), html, {
+    id: 'en-hero',
+    label: 'True Story — enSights',
+    titleHtml: 'Connecting Expertise with <span class="accent">Understanding</span>',
+    subtitle: 'How technical expertise and persistent questioning became clearer thought leadership, customer communication and commercial outreach.',
+  });
+}
