@@ -1,7 +1,6 @@
 import { m, useReducedMotion } from 'framer-motion';
 import { peekSite, slot } from '../../services/content-service.js';
 import { MagneticButton } from '../../components/motion/MagneticButton';
-import { ParallaxMedia } from '../../components/motion/ParallaxMedia';
 import { Reveal } from '../../components/motion/Reveal';
 import { ease } from '../../lib/motion';
 import type { IslandProps } from '../types';
@@ -52,10 +51,6 @@ const CONTACT_ITEMS = [
     text: 'Working globally.',
   },
 ] as const;
-
-const VISUAL_SRC = '/images/11_section.png';
-const VISUAL_ALT =
-  'Two people in quiet conversation at a stone table on an open terrace at sunset, overlooking mountains and a lake — a moment of shared perspective';
 
 export function ConversationSpotlightMotion(_props: IslandProps) {
   const reduced = useReducedMotion();
@@ -123,19 +118,6 @@ export function ConversationSpotlightMotion(_props: IslandProps) {
           ))}
         </aside>
       </div>
-
-      <Reveal as="figure" className="conversation-cta__visual" delay={0.15} y={20}>
-        <ParallaxMedia className="conversation-cta__visual-frame" offset={24}>
-          <img
-            src={VISUAL_SRC}
-            alt={VISUAL_ALT}
-            loading="lazy"
-            width={1680}
-            height={940}
-          />
-        </ParallaxMedia>
-        <span className="conversation-cta__visual-shine" aria-hidden="true" />
-      </Reveal>
     </>
   );
 }

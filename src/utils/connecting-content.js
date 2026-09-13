@@ -3,6 +3,7 @@
    Source: key-values item 04 + reference art direction
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
 export const CONNECTING_OBJECTS = [
   {
     id: 'psychology',
@@ -86,7 +87,7 @@ export const CONNECTING_PHILOSOPHY =
 
 export const CONNECTING_CTA = 'See how it fits together';
 
-export const CONNECTING_VISUAL_IMAGE = '/images/connecting/connecting-dots.png';
+export const CONNECTING_VISUAL_IMAGE = assetUrl('/images/connecting/connecting-dots.png');
 export const CONNECTING_FALLBACK_IMAGE = CONNECTING_VISUAL_IMAGE;
 export const CONNECTING_FALLBACK_ALT =
   'A connected system of sculptural objects linked by warm orange paths around a luminous central sphere — customer psychology, communication, creative opportunities, positioning, partnerships and execution';

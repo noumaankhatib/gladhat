@@ -13,6 +13,7 @@ import {
   renderWhenScenario,
   renderWhenScenarioNav,
 } from '../utils/when-scenarios.js';
+import { assetUrl } from '../config/env.js';
 
 const INTRO_AUDIO =
   "Most founders don't wake up thinking they need a new commercial strategy. They wake up thinking something isn't working. Growth has slowed. The message feels unclear. The website no longer reflects the quality of the business. Marketing isn't producing the results they expected. Or there's a feeling that a bigger opportunity exists, but they can't quite see it yet. Those are often the moments when an experienced outside perspective becomes valuable.";
@@ -48,7 +49,7 @@ export async function WhenToTalkPage() {
               </div>
             </div>
             <figure class="split__image when-talk-intro__media">
-              <img src="/images/conversation.png" alt="A thoughtful conversation about your business" loading="eager" fetchpriority="high" decoding="async" width="800" height="800">
+              <img src="${assetUrl('/images/conversation.png')}" alt="A thoughtful conversation about your business" loading="eager" fetchpriority="high" decoding="async" width="800" height="800">
             </figure>
           </div>
         </div>
@@ -84,7 +85,7 @@ export async function WhenToTalkPage() {
               ${renderNextParagraphs()}
             </div>
             <figure class="split__image when-talk-intro__media when-talk-next__media">
-              <img src="/images/research.png" alt="Research as the starting point for every engagement" loading="lazy" decoding="async" width="800" height="800">
+              <img src="${assetUrl('/images/research.png')}" alt="Research as the starting point for every engagement" loading="lazy" decoding="async" width="800" height="800">
             </figure>
           </div>
         </div>

@@ -11,6 +11,7 @@
 
 import { getPage } from '../services/content-service.js';
 import { applyCmsPage } from '../utils/page-compose.js';
+import { assetUrl } from '../config/env.js';
 
 export async function AboutPage() {
   const html = `
@@ -39,7 +40,7 @@ export async function AboutPage() {
             <p class="highlight-text">I help businesses see themselves more clearly.</p>
           </div>
           <div class="split__image reveal reveal--delay-2 about-intro__figure">
-            <img src="/images/silhouette.png" alt="Silhouette of a person looking thoughtfully out a window into golden light" loading="lazy">
+            <img src="${assetUrl('/images/silhouette.png')}" alt="Silhouette of a person looking thoughtfully out a window into golden light" loading="lazy">
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
    GLADHAT — Section 07 Creating what matters (client copy)
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
 export const CREATING_INTRO =
   "Only after we've developed a clear understanding do we begin creating.";
 
@@ -31,6 +32,6 @@ export const CREATING_OUTPUTS = [
   { id: 'ongoing-support', num: '06', label: 'Ongoing support' },
 ];
 
-export const CREATING_INSTALLATION_IMAGE = '/images/creating/creating-matters-installation.jpg';
+export const CREATING_INSTALLATION_IMAGE = assetUrl('/images/creating/creating-matters-installation.jpg');
 export const CREATING_INSTALLATION_ALT =
   'Editorial sculptural installation of glass, stone, paper and metal connected by a glowing orange line — possible outputs include strategy sprint, website, positioning, campaign, event concept and ongoing support';

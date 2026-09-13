@@ -3,6 +3,8 @@
    Section: section-start-conversation
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
+
 const ICONS = {
   email: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
   linkedin: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
@@ -15,10 +17,21 @@ export function ConversationSpotlight() {
 
   return `
     <section
-      class="conversation-cta section-start-conversation section-conversation-cta"
+      class="conversation-cta conversation-cta--bg section-start-conversation section-conversation-cta"
       id="section-start-conversation"
       aria-labelledby="conversation-cta-title"
     >
+      <div class="conversation-cta__bg-media" aria-hidden="true">
+        <img
+          src="${assetUrl('/images/11_section.png')}"
+          alt=""
+          loading="lazy"
+          width="1680"
+          height="940"
+        >
+        <span class="conversation-cta__bg-overlay"></span>
+      </div>
+
       <div class="container conversation-cta__grid" data-island="conversation-spotlight">
         <div class="conversation-cta__main">
           <div class="conversation-cta__copy">
@@ -54,17 +67,6 @@ export function ConversationSpotlight() {
             </div>
           </aside>
         </div>
-        <figure class="conversation-cta__visual">
-          <div class="conversation-cta__visual-frame">
-            <img
-              src="/images/11_section.png"
-              alt="Two people in quiet conversation at a stone table on an open terrace at sunset, overlooking mountains and a lake — a moment of shared perspective"
-              loading="lazy"
-              width="1680"
-              height="940"
-            >
-          </div>
-        </figure>
       </div>
     </section>
   `;

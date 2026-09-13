@@ -3,7 +3,8 @@
    Source: ServerFactory.js + section-proof stats
    =================================================== */
 
-export const TRUE_STORIES_VIDEO = '/videos/true-success.mp4';
+import { assetUrl } from '../config/env.js';
+export const TRUE_STORIES_VIDEO = assetUrl('/videos/true-success.mp4');
 
 export const TRUE_STORIES_VIDEO_ALT =
   'Server Factory story — from selling more servers to understanding how organisations choose a supplier, through a clearer perspective, buyer journey and qualified leads';

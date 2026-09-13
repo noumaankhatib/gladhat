@@ -7,6 +7,7 @@ import { StaggerItem } from '../../components/motion/StaggerItem';
 import { WHEN_NEXT_PARAGRAPHS } from '../../utils/when-scenarios.js';
 import { ease, revealViewport } from '../../lib/motion';
 import type { IslandProps } from '../types';
+import { assetUrl } from '../../config/env.js';
 
 const TITLE_LINES = [
   { text: 'What happens', className: 'when-talk-next__title-line' },
@@ -73,7 +74,7 @@ export function WhenTalkNextMotion(_props: IslandProps) {
       <figure className="split__image when-talk-intro__media when-talk-next__media">
         <ParallaxMedia className="when-talk-next__frame" speed={0.08}>
           <m.img
-            src="/images/research.png"
+            src={assetUrl('/images/research.png')}
             alt="Research as the starting point for every engagement"
             loading="lazy"
             decoding="async"

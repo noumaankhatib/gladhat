@@ -3,6 +3,7 @@
    Source: key-values item 03 + investigation questions
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
 export const ESSENCE_LAYERS = [
   {
     id: 'familiarity',
@@ -38,7 +39,7 @@ export const ESSENCE_INVESTIGATION = [
     id: 'choose',
     text: 'What makes customers choose you?',
     detail: 'The value that truly matters.',
-    icon: '/images/essence/investigation-icon-choose.svg',
+    icon: assetUrl('/images/essence/investigation-icon-choose.svg'),
     iconAlt: 'Half grey half orange sphere — what makes customers choose you',
   },
   {
@@ -46,7 +47,7 @@ export const ESSENCE_INVESTIGATION = [
     id: 'noticing',
     text: 'What have you stopped noticing?',
     detail: 'The strengths that are easy to miss.',
-    icon: '/images/essence/investigation-icon-noticing.svg',
+    icon: assetUrl('/images/essence/investigation-icon-noticing.svg'),
     iconAlt: 'Concrete cube with orange core — what you have stopped noticing',
   },
   {
@@ -54,7 +55,7 @@ export const ESSENCE_INVESTIGATION = [
     id: 'opportunity',
     text: 'Where is the opportunity?',
     detail: "The potential that's already there.",
-    icon: '/images/essence/investigation-icon-opportunity.svg',
+    icon: assetUrl('/images/essence/investigation-icon-opportunity.svg'),
     iconAlt: 'Concrete steps with orange top — where the opportunity is',
   },
   {
@@ -62,23 +63,23 @@ export const ESSENCE_INVESTIGATION = [
     id: 'assumptions',
     text: 'What assumptions are shaping decisions?',
     detail: 'The beliefs worth rethinking.',
-    icon: '/images/essence/investigation-icon-assumptions.svg',
+    icon: assetUrl('/images/essence/investigation-icon-assumptions.svg'),
     iconAlt: 'Stone ring with orange inner glow — assumptions shaping decisions',
   },
 ];
 
-export const ESSENCE_VIDEO = '/videos/essence-section.mp4';
-export const ESSENCE_VIDEO_POSTER = '/images/essence/essence-final-composition.jpg';
+export const ESSENCE_VIDEO = assetUrl('/videos/essence-section.mp4');
+export const ESSENCE_VIDEO_POSTER = assetUrl('/images/essence/essence-final-composition.jpg');
 
 export const ESSENCE_FINAL_IMAGE = ESSENCE_VIDEO_POSTER;
 export const ESSENCE_FINAL_ALT =
   'Layered stone and glass slabs separated to reveal a warm orange core — the essence of the business';
 
 export const ESSENCE_LAYER_ASSETS = {
-  top: '/images/essence/essence-layer-familiarity.png',
-  bottom: '/images/essence/essence-layer-complexity.png',
-  glass: '/images/essence/essence-layer-glass.png',
-  core: '/images/essence/essence-core.png',
+  top: assetUrl('/images/essence/essence-layer-familiarity.png'),
+  bottom: assetUrl('/images/essence/essence-layer-complexity.png'),
+  glass: assetUrl('/images/essence/essence-layer-glass.png'),
+  core: assetUrl('/images/essence/essence-core.png'),
 };
 
 export const ESSENCE_INTRO =

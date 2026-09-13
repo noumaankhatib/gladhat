@@ -5,6 +5,7 @@
 import { getPage, getStories, imageUrl } from '../services/content-service.js';
 import { applyCmsPage } from '../utils/page-compose.js';
 import { WORK_FILTERS, mergePortfolioStories } from '../utils/work-portfolio.js';
+import { assetUrl } from '../config/env.js';
 
 function renderPortfolioCard(story) {
   return `
@@ -120,7 +121,7 @@ export async function TrueStoriesPage() {
             </ul>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/stories.png" alt="Open Book" loading="lazy">
+            <img src="${assetUrl('/images/stories.png')}" alt="Open Book" loading="lazy">
           </div>
         </div>
       </div>

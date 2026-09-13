@@ -4,6 +4,7 @@
 
 import { getPage } from '../services/content-service.js';
 import { applyCmsPage } from '../utils/page-compose.js';
+import { assetUrl } from '../config/env.js';
 
 export async function SeeDifferentlyPage() {
   const html = `
@@ -38,7 +39,7 @@ export async function SeeDifferentlyPage() {
             <p class="highlight-text">Take your time. When you're ready, let's begin.</p>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/prism.png" alt="Prism refracting light" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
+            <img src="${assetUrl('/images/prism.png')}" alt="Prism refracting light" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@ export async function SeeDifferentlyPage() {
               <p class="highlight-text">How much of my marketing actually focuses on those strengths?</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/conversation.png" alt="Conversation" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/conversation.png')}" alt="Conversation" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -80,7 +81,7 @@ export async function SeeDifferentlyPage() {
               <p>What assumptions are you expected to understand? What questions remain unanswered?</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/perspective_prism.png" alt="Perspective" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/perspective_prism.png')}" alt="Perspective" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -94,7 +95,7 @@ export async function SeeDifferentlyPage() {
               <p class="highlight-text">What difference would disappear from their lives or businesses?</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/essence.png" alt="Essence" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/essence.png')}" alt="Essence" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -109,7 +110,7 @@ export async function SeeDifferentlyPage() {
               <p class="highlight-text">If not, why not?</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/connecting.png" alt="Connecting" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/connecting.png')}" alt="Connecting" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -124,7 +125,7 @@ export async function SeeDifferentlyPage() {
               <p class="highlight-text">What if one of our biggest assumptions isn't true anymore?</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/research.png" alt="Research" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/research.png')}" alt="Research" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -139,7 +140,7 @@ export async function SeeDifferentlyPage() {
               <p class="highlight-text">If you gave yourself permission to look beyond the obvious… what might you discover?</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/beyond.png" alt="Beyond" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/beyond.png')}" alt="Beyond" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -167,7 +168,7 @@ export async function SeeDifferentlyPage() {
             </div>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/whatif.png" alt="What If" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <img src="${assetUrl('/images/whatif.png')}" alt="What If" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
           </div>
         </div>
       </div>

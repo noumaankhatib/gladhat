@@ -14,6 +14,7 @@
 import { getPage } from '../services/content-service.js';
 import { applyCmsPage } from '../utils/page-compose.js';
 import { AudioPrompt } from '../components/AudioPrompt.js';
+import { assetUrl } from '../config/env.js';
 
 const INTRO_AUDIO = "I want to understand what you've built, what excites you, what frustrates you, where you feel confident, where you're uncertain, what you've already tried, and what keeps returning to your mind. The more I understand your business, the more likely we are to discover something valuable together.";
 
@@ -41,7 +42,7 @@ export async function WorkingTogetherPage() {
             <p class="highlight-text">The more I understand your business, the more likely we are to discover something valuable together.</p>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/research.png" alt="Collaborative Work" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
+            <img src="${assetUrl('/images/research.png')}" alt="Collaborative Work" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
           </div>
         </div>
       </div>
@@ -74,7 +75,7 @@ export async function WorkingTogetherPage() {
               <p class="highlight-text">Only once I understand how you see the business can I start noticing what you might not.</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/essence.png" alt="Listening and Essence" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/essence.png')}" alt="Listening and Essence" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -89,7 +90,7 @@ export async function WorkingTogetherPage() {
               <p class="highlight-text">Sometimes the answers confirm the direction you're already taking. Sometimes they change it completely. Both outcomes move the work forward.</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/perspective_prism.png" alt="Different Perspective" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/perspective_prism.png')}" alt="Different Perspective" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -103,7 +104,7 @@ export async function WorkingTogetherPage() {
               <p class="highlight-text">Good conversations don't always produce immediate answers. They produce better questions. And better questions often lead to better decisions.</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/conversation.png" alt="Conversations" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/conversation.png')}" alt="Conversations" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -117,7 +118,7 @@ export async function WorkingTogetherPage() {
               <p class="highlight-text">Sometimes the answer is a clearer message, a different audience, or a stronger partnership. Sometimes it's simply a different way of looking at the business.</p>
             </div>
             <div class="split__image reveal reveal--delay-2">
-              <img src="/images/connecting.png" alt="Connecting dots" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+              <img src="${assetUrl('/images/connecting.png')}" alt="Connecting dots" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
             </div>
           </div>
 
@@ -151,7 +152,7 @@ export async function WorkingTogetherPage() {
             </div>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/whatif.png" alt="Creating What Matters" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <img src="${assetUrl('/images/whatif.png')}" alt="Creating What Matters" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
           </div>
         </div>
       </div>

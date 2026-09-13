@@ -4,10 +4,11 @@ import { AnimatedHeading } from '../../components/motion/AnimatedHeading';
 import { Enter } from '../../components/motion/Enter';
 import { MagneticButton } from '../../components/motion/MagneticButton';
 import type { IslandProps } from '../types';
+import { assetUrl } from '../../config/env.js';
 
 export function HeroMotion({ node }: IslandProps) {
   const reduced = useReducedMotion();
-  const heroImg = node.dataset.heroImg ?? '/images/hero-portal-perspective.jpg';
+  const heroImg = node.dataset.heroImg ?? assetUrl('/images/hero-portal-perspective.jpg');
   const heroCta = node.dataset.heroCta ?? "Let's Talk";
   const heroSub =
     node.dataset.heroSub ??

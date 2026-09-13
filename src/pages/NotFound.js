@@ -2,6 +2,8 @@
    GLADHAT — 404 Not Found
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
+
 export function NotFoundPage() {
   return `
     <section class="error-page section-error-404" id="error-404" aria-label="Page not found">
@@ -21,7 +23,7 @@ export function NotFoundPage() {
             </nav>
           </div>
           <figure class="error-page__visual">
-            <img src="/images/prism.png" alt="" loading="lazy" width="1000" height="1000">
+            <img src="${assetUrl('/images/prism.png')}" alt="" loading="lazy" width="1000" height="1000">
           </figure>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Reveal } from '../../components/motion/Reveal';
 import { APPROACH_INTRO, APPROACH_STEPS } from '../../utils/approach-steps.js';
 import { ease } from '../../lib/motion';
 import type { IslandProps } from '../types';
+import { assetUrl } from '../../config/env.js';
 
 function Beat({
   step,
@@ -93,7 +94,7 @@ export function ApproachSpotlightMotion(_props: IslandProps) {
         <figure className="approach-spotlight__visual-frame">
           <img
             className="approach-spotlight__visual-image"
-            src="/images/10_section.png"
+            src={assetUrl('/images/10_section.png')}
             alt="Five sculptural objects on a stone shelf, each representing a stage of the approach: listening, looking, challenging, connecting and creating."
             loading="lazy"
             width={1680}

@@ -4,13 +4,14 @@ import { Reveal } from '../../components/motion/Reveal';
 import { THINKING_DIFFERENCE_LEAD, THINKING_DIFFERENCE_CLOSE } from '../../utils/thinking-difference-content.js';
 import { ease, revealViewport } from '../../lib/motion';
 import type { IslandProps } from '../types';
+import { assetUrl } from '../../config/env.js';
 
 function Installation({ reduced }: { reduced: boolean | null }) {
   return (
     <div className="thinking-difference__installation">
       <m.img
         className="thinking-difference__scene"
-        src="/images/09_section.png"
+        src={assetUrl('/images/09_section.png')}
         alt="An architectural installation of glass and stone frames converging toward a single clear opening onto a sunlit landscape, labelled What you notice, What you question, What you prioritise, What you decide, What you create — representing the journey from noticing to creating."
         loading="lazy"
         width={1680}

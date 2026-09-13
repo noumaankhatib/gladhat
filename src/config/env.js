@@ -21,3 +21,17 @@ export function getSiteOrigin() {
   }
   return 'https://gladhat.com';
 }
+
+/**
+ * Prefixes a site-root-relative asset path (e.g. "/images/logo.png") with the
+ * build's base path (import.meta.env.BASE_URL, e.g. "/" or "/preview/"), so
+ * assets resolve correctly whether the build is deployed at a domain root or
+ * under a subpath.
+ */
+export function assetUrl(path) {
+  if (typeof path !== 'string' || !path.startsWith('/')) {
+    return path;
+  }
+  const base = import.meta.env.BASE_URL || '/';
+  return base.replace(/\/$/, '') + path;
+}

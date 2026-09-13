@@ -160,6 +160,19 @@ const routes = {
   },
 };
 
+function getBasePath() {
+  return (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+}
+
+/** Strips the deploy base path (e.g. "/preview") from a site-root pathname. */
+function stripBasePath(pathname) {
+  const base = getBasePath();
+  if (base && pathname.startsWith(base)) {
+    return pathname.slice(base.length) || '/';
+  }
+  return pathname;
+}
+
 export class Router {
   constructor(renderFn) {
     this.render = renderFn;
@@ -172,12 +185,12 @@ export class Router {
   }
 
   navigate(path) {
-    window.history.pushState(null, '', path);
+    window.history.pushState(null, '', getBasePath() + path);
     this.resolve();
   }
 
   resolve() {
-    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    const path = stripBasePath(window.location.pathname).replace(/\/+$/, '') || '/';
     const route = this.routes[path];
 
     if (!route) {

@@ -3,6 +3,7 @@ import { ParallaxMedia } from '../../components/motion/ParallaxMedia';
 import { Reveal } from '../../components/motion/Reveal';
 import { ease } from '../../lib/motion';
 import { parseIslandProps, type IslandProps } from '../types';
+import { assetUrl } from '../../config/env.js';
 
 type WhatIfProps = {
   title?: string;
@@ -25,7 +26,7 @@ export function WhatIfMotion({ node }: IslandProps) {
   const reduced = useReducedMotion();
   const props = parseIslandProps<WhatIfProps>(node);
   const title = props.title || node.dataset.whatifTitle || 'What if...';
-  const image = props.image || node.dataset.whatifImage || '/images/whatif.png';
+  const image = props.image || node.dataset.whatifImage || assetUrl('/images/whatif.png');
   const imageAlt =
     props.imageAlt ||
     node.dataset.whatifImageAlt ||

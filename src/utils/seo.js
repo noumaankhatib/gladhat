@@ -2,7 +2,7 @@
    GLADHAT — Dynamic SEO Utility
    =================================================== */
 
-import { getSiteOrigin } from '../config/env.js';
+import { getSiteOrigin, assetUrl } from '../config/env.js';
 import { peekSite } from '../services/content-service.js';
 
 function siteOrigin() {
@@ -35,7 +35,7 @@ export function updateSEO({ title, description, path = '/', noindex = false }) {
   const origin = siteOrigin();
   const fullUrl = `${origin}${path}`;
   const site = peekSite();
-  const imageUrl = (site && site.seo_image && site.seo_image.url) || `${origin}/images/logo_3d.png`;
+  const imageUrl = (site && site.seo_image && site.seo_image.url) || `${origin}${assetUrl('/images/logo_3d.png')}`;
 
   // 1. Basic Meta
   document.title = fullTitle;

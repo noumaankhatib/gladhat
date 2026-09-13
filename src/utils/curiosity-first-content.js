@@ -2,6 +2,7 @@
    GLADHAT — Section 06 curiosity first (client copy)
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
 export const CURIOSITY_BOOKS = [
   {
     id: 'listen',
@@ -72,7 +73,7 @@ export const CURIOSITY_INTRO = [
 export const CURIOSITY_PHILOSOPHY =
   'I want to understand before trying to persuade.';
 
-export const CURIOSITY_VISUAL_GIF = '/images/curiosity/books-moving.gif';
+export const CURIOSITY_VISUAL_GIF = assetUrl('/images/curiosity/books-moving.gif');
 
 export const CURIOSITY_SCULPTURE_ALT =
   'An animated sculptural stack of six books labelled Listen, Explore, Understand, Challenge, Clarify and Build, with an optical lens revealing a new perspective at the top';

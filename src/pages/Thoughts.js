@@ -4,6 +4,7 @@
 
 import { getPage, getPosts, imageUrl } from '../services/content-service.js';
 import { applyCmsPage } from '../utils/page-compose.js';
+import { assetUrl } from '../config/env.js';
 
 /* Real published articles don't exist yet. These are themes already
    reflected in real work elsewhere on the site (case studies, About,
@@ -52,7 +53,7 @@ export async function ThoughtsPage() {
         excerpt: typeof p.excerpt === 'string' ? p.excerpt.replace(/<[^>]+>/g, '').trim() : '',
         date: p.date || '',
         tag: p.tag || 'Thoughts',
-        image: imageUrl(p.image, '/images/curiosity.png'),
+        image: imageUrl(p.image, assetUrl('/images/curiosity.png')),
       }))
     : [];
 
@@ -92,7 +93,7 @@ export async function ThoughtsPage() {
             </span>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${featuredArticle.image || '/images/curiosity.png'}" alt="${featuredArticle.title}" loading="lazy" style="border-radius: var(--radius-md); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <img src="${featuredArticle.image || assetUrl('/images/curiosity.png')}" alt="${featuredArticle.title}" loading="lazy" style="border-radius: var(--radius-md); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
           </div>
         </div>
 
@@ -115,7 +116,7 @@ export async function ThoughtsPage() {
             <a href="/see-your-business-differently" class="btn btn--primary" id="thoughts-see-differently-cta">Try the exercises <span class="btn-arrow">→</span></a>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/prism.png" alt="Prism refracting light" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
+            <img src="${assetUrl('/images/prism.png')}" alt="Prism refracting light" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
           </div>
         </div>
       </div>
@@ -165,7 +166,7 @@ export async function ThoughtsPage() {
             <p class="highlight-text">If one of these articles starts a conversation or helps you see something a little differently, then it has done its job.</p>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="/images/silhouette.png" alt="Silhouette" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
+            <img src="${assetUrl('/images/silhouette.png')}" alt="Silhouette" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
           </div>
         </div>
       </div>

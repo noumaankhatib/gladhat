@@ -2,6 +2,7 @@
    GLADHAT — When We Should Talk (full client copy)
    =================================================== */
 
+import { assetUrl } from '../config/env.js';
 export const WHEN_INTRO_PARAGRAPHS = [
   "Most founders don't wake up thinking they need a new commercial strategy.",
   "They wake up thinking something isn't working.",
@@ -29,7 +30,7 @@ export const WHEN_SCENARIOS = [
     navLabel: 'Too close',
     reverse: true,
     title: "…when you're too close to see clearly",
-    image: '/images/perspective_prism.png',
+    image: assetUrl('/images/perspective_prism.png'),
     imageAlt: 'Looking at a business from a fresh perspective',
     focus:
       "You don't need someone to tell you how to run your business. You need someone who helps you see it with fresh eyes.",
@@ -46,7 +47,7 @@ export const WHEN_SCENARIOS = [
     navLabel: 'Message',
     reverse: false,
     title: '…when your message no longer reflects your value',
-    image: '/images/essence.png',
+    image: assetUrl('/images/essence.png'),
     imageAlt: 'Clarifying the essence of your message',
     focus: null,
     body: `
@@ -61,7 +62,7 @@ export const WHEN_SCENARIOS = [
     navLabel: 'Decisions',
     reverse: true,
     title: "…when you're making important decisions",
-    image: '/images/whatif.png',
+    image: assetUrl('/images/whatif.png'),
     imageAlt: 'Exploring possibilities before major decisions',
     focus: 'A short conversation can prevent a much larger investment in the wrong solution.',
     body: `
@@ -81,7 +82,7 @@ export const WHEN_SCENARIOS = [
     navLabel: 'Opportunity',
     reverse: false,
     title: "…when you feel there's a bigger opportunity",
-    image: '/images/beyond.png',
+    image: assetUrl('/images/beyond.png'),
     imageAlt: 'Seeing opportunity beyond the obvious',
     focus:
       "Those opportunities can't always be discovered by working harder. Sometimes they appear when somebody asks an unusual question.",
@@ -99,7 +100,7 @@ export const WHEN_SCENARIOS = [
     navLabel: 'Partner',
     reverse: true,
     title: '…when you want a thinking partner',
-    image: '/images/connecting.png',
+    image: assetUrl('/images/connecting.png'),
     imageAlt: 'Connecting ideas as a thinking partner',
     focus: 'Because real commercial growth happens when they work together.',
     body: `

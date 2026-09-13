@@ -63,15 +63,16 @@ import {
   CREATING_PHILOSOPHY_EMPHASIS,
   CREATING_PHILOSOPHY_LEAD,
 } from '../utils/creating-matters-content.js';
+import { assetUrl } from '../config/env.js';
 export async function HomePage() {
   const page = await getPage('home');
   const f = page?.fields || {};
   const heroSub = slot(f.gladhat_home_hero_sub, "Most founders don't need more ideas.<br>\n            They need a different perspective.");
   const heroCta = slot(f.gladhat_home_hero_cta, "Let's Talk");
-  const heroVisual = imageUrl(f.gladhat_home_hero_image, '/images/hero-portal-perspective.jpg');
-  const scrolly1 = imageUrl(f.gladhat_home_q1_image, '/images/epic_founders.png');
-  const scrolly3 = imageUrl(f.gladhat_home_bento1_image, '/images/epic_essence.png');
-  const scrolly4 = imageUrl(f.gladhat_home_bento2_image, '/images/epic_connecting.png');
+  const heroVisual = imageUrl(f.gladhat_home_hero_image, assetUrl('/images/hero-portal-perspective.jpg'));
+  const scrolly1 = imageUrl(f.gladhat_home_q1_image, assetUrl('/images/epic_founders.png'));
+  const scrolly3 = imageUrl(f.gladhat_home_bento1_image, assetUrl('/images/epic_essence.png'));
+  const scrolly4 = imageUrl(f.gladhat_home_bento2_image, assetUrl('/images/epic_connecting.png'));
 
   const featuredWork = [
     {
@@ -155,27 +156,27 @@ export async function HomePage() {
         ${Array(4).fill().map(() => `
           <div class="marquee-item">
             <div class="marquee-brand">
-              <img src="/images/logos/server_factory.png" alt="Server Factory Logo" class="marquee-logo-img" loading="lazy">
+              <img src="${assetUrl('/images/logos/server_factory.png')}" alt="Server Factory Logo" class="marquee-logo-img" loading="lazy">
               <span class="marquee-text">Server Factory</span>
             </div>
             <span class="marquee-separator">✦</span>
             <div class="marquee-brand">
-              <img src="/images/logos/first_light.png" alt="First Light Logo" class="marquee-logo-img" loading="lazy">
+              <img src="${assetUrl('/images/logos/first_light.png')}" alt="First Light Logo" class="marquee-logo-img" loading="lazy">
               <span class="marquee-text">First Light</span>
             </div>
             <span class="marquee-separator">✦</span>
             <div class="marquee-brand">
-              <img src="/images/logos/tonbo.png" alt="Tonbo Logo" class="marquee-logo-img" loading="lazy">
+              <img src="${assetUrl('/images/logos/tonbo.png')}" alt="Tonbo Logo" class="marquee-logo-img" loading="lazy">
               <span class="marquee-text">Tonbo</span>
             </div>
             <span class="marquee-separator">✦</span>
             <div class="marquee-brand">
-              <img src="/images/logos/ensights.png" alt="enSights Logo" class="marquee-logo-img" loading="lazy">
+              <img src="${assetUrl('/images/logos/ensights.png')}" alt="enSights Logo" class="marquee-logo-img" loading="lazy">
               <span class="marquee-text">enSights</span>
             </div>
             <span class="marquee-separator">✦</span>
             <div class="marquee-brand">
-              <img src="/images/logos/provengo.svg" alt="Provengo Logo" class="marquee-logo-img" loading="lazy">
+              <img src="${assetUrl('/images/logos/provengo.svg')}" alt="Provengo Logo" class="marquee-logo-img" loading="lazy">
               <span class="marquee-text">Provengo</span>
             </div>
             <span class="marquee-separator">✦</span>
@@ -536,7 +537,7 @@ export async function HomePage() {
           <div class="thinking-difference__installation">
             <img
               class="thinking-difference__scene"
-              src="/images/09_section.png"
+              src="${assetUrl('/images/09_section.png')}"
               alt="An architectural installation of glass and stone frames converging toward a single clear opening onto a sunlit landscape, labelled What you notice, What you question, What you prioritise, What you decide, What you create — representing the journey from noticing to creating."
               loading="lazy"
               width="1680"
@@ -566,7 +567,7 @@ export async function HomePage() {
           <figure class="approach-spotlight__visual-frame">
             <img
               class="approach-spotlight__visual-image"
-              src="/images/10_section.png"
+              src="${assetUrl('/images/10_section.png')}"
               alt="Five sculptural objects on a stone shelf, each representing a stage of the approach: listening, looking, challenging, connecting and creating."
               loading="lazy"
               width="1680"
