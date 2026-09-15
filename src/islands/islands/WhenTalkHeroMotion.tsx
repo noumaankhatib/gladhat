@@ -1,22 +1,25 @@
 import { Enter } from '../../components/motion/Enter';
-import { AnimatedHeading } from '../../components/motion/AnimatedHeading';
+import { AnimatedLines } from '../../components/motion/AnimatedLines';
+import { HERO_LABEL, HERO_TITLE_LINES, HERO_SUBTITLE } from '../../utils/when-scenarios.js';
 import type { IslandProps } from '../types';
+
+const TITLE_LINES = HERO_TITLE_LINES.map((text) => ({ text, className: 'hero__title-line' }));
 
 export function WhenTalkHeroMotion(_props: IslandProps) {
   return (
     <>
       <Enter as="span" className="hero__label" delay={0.08}>
-        Gladhat
+        {HERO_LABEL}
       </Enter>
-      <AnimatedHeading
+      <AnimatedLines
         as="h1"
         className="hero__title"
-        text="When We Should Talk."
-        accentWords={{ 3: 'accent' }}
+        lines={TITLE_LINES}
+        maskClassName="hero__title-mask"
+        lineClassName="hero__title-line"
       />
       <Enter as="p" className="hero__subtitle" delay={0.42}>
-        Most founders don&apos;t wake up thinking they need a new commercial strategy. They wake
-        up thinking something isn&apos;t working.
+        {HERO_SUBTITLE}
       </Enter>
     </>
   );

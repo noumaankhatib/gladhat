@@ -1,252 +1,121 @@
 /* ===================================================
-   GLADHAT — When We Should Talk (full client copy)
+   GLADHAT — When We Should Talk
    =================================================== */
 
 import { assetUrl } from '../config/env.js';
-export const WHEN_INTRO_PARAGRAPHS = [
-  "Most founders don't wake up thinking they need a new commercial strategy.",
-  "They wake up thinking something isn't working.",
-  'Growth has slowed.',
-  'The message feels unclear.',
-  'The website no longer reflects the quality of the business.',
-  "Marketing isn't producing the results they expected.",
-  "Or there's a feeling that a bigger opportunity exists, but they can't quite see it yet.",
+
+/* 01 — Hero ------------------------------------------------------ */
+
+export const HERO_LABEL = 'When We Should Talk';
+export const HERO_TITLE_LINES = ['Something isn’t', 'quite clicking.'];
+export const HERO_SUBTITLE =
+  'You might not need another agency. You might need someone to look at the problem differently.';
+export const HERO_CTA = 'See if this sounds familiar';
+export const HERO_IMAGE = assetUrl('/images/hero-portal-perspective.jpg');
+export const HERO_IMAGE_ALT =
+  'A passage between large stone forms opens onto a sunlit mountain landscape and a clear path ahead';
+
+/* 02 — Recognition ------------------------------------------------ */
+
+export const RECOGNITION_LABEL = 'You might be here';
+export const RECOGNITION_TITLE = 'Recognise\nany of these?';
+export const RECOGNITION_LEDE =
+  'There are common moments. They often signal a deeper opportunity.';
+
+export const RECOGNITION_PANELS = [
+  'I know something needs to change,\nbut I’m not sure what.',
+  'We’ve grown,\nbut the story hasn’t caught up.',
+  'We’re good at what we do,\nbut customers don’t quite see it.',
+  'Everyone internally sees\nthe business differently.',
+  'We’ve tried marketing.\nSomething still isn’t connecting.',
 ];
 
-export const WHEN_INTRO_INSIGHT =
-  'Those are often the moments when an experienced outside perspective becomes valuable.';
+/* 03 — Go deeper --------------------------------------------------- */
 
-export const WHEN_INTRO_SIGNALS = WHEN_INTRO_PARAGRAPHS.slice(2);
+export const DEEPER_LABEL = 'The problem isn’t always the problem.';
+export const DEEPER_TITLE = 'What you see\nisn’t the whole picture.';
+export const DEEPER_LEDE =
+  'The thing you’re trying to fix isn’t always the thing that’s holding you back.';
 
-export const WHEN_FOCUS_LINES = [
-  "An outside perspective isn't about fixing what's broken —",
-  "it's about seeing what you've stopped noticing.",
+export const DEEPER_FRONT_LAYERS = ['Website', 'Marketing', 'Sales', 'Messaging', 'Positioning'];
+
+export const DEEPER_BACK_LAYERS = [
+  'Customer understanding',
+  'Assumptions',
+  'Decision making',
+  'Commercial clarity',
+  'Growth opportunity',
 ];
 
-export const WHEN_SCENARIOS = [
-  {
-    id: 'too-close',
-    number: '01',
-    navLabel: 'Too close',
-    reverse: true,
-    title: "…when you're too close to see clearly",
-    image: assetUrl('/images/perspective_prism.png'),
-    imageAlt: 'Looking at a business from a fresh perspective',
-    focus:
-      "You don't need someone to tell you how to run your business. You need someone who helps you see it with fresh eyes.",
-    body: `
-      <p class="when-talk-prose__lead">No one knows your business better than you. That's also the challenge.</p>
-      <p>The longer you live with something, the harder it becomes to experience it the way your customers do.</p>
-      <p>You stop noticing the things that confuse people. You overlook strengths because they feel ordinary.</p>
-      <p>You become attached to explanations that no longer resonate.</p>
-    `,
-  },
-  {
-    id: 'message',
-    number: '02',
-    navLabel: 'Message',
-    reverse: false,
-    title: '…when your message no longer reflects your value',
-    image: assetUrl('/images/essence.png'),
-    imageAlt: 'Clarifying the essence of your message',
-    focus: null,
-    body: `
-      <p class="when-talk-prose__lead">Many businesses don't have a marketing problem. They have a <strong>clarity problem</strong>.</p>
-      <p>Customers don't immediately understand what makes the offering different.</p>
-      <p>Key strengths get buried beneath features, technical language or familiar assumptions.</p>
-    `,
-  },
-  {
-    id: 'decisions',
-    number: '03',
-    navLabel: 'Decisions',
-    reverse: true,
-    title: "…when you're making important decisions",
-    image: assetUrl('/images/whatif.png'),
-    imageAlt: 'Exploring possibilities before major decisions',
-    focus: 'A short conversation can prevent a much larger investment in the wrong solution.',
-    body: `
-      <ul class="when-talk-list when-talk-list--questions">
-        <li>Should you invest in a new website?</li>
-        <li>Run a PPC campaign?</li>
-        <li>Reposition the business?</li>
-        <li>Enter a new market?</li>
-        <li>Expand your offering?</li>
-      </ul>
-      <p class="when-talk-prose__lead">Before making those decisions, it's worth pausing to make sure you're solving the right problem.</p>
-    `,
-  },
-  {
-    id: 'opportunity',
-    number: '04',
-    navLabel: 'Opportunity',
-    reverse: false,
-    title: "…when you feel there's a bigger opportunity",
-    image: assetUrl('/images/beyond.png'),
-    imageAlt: 'Seeing opportunity beyond the obvious',
-    focus:
-      "Those opportunities can't always be discovered by working harder. Sometimes they appear when somebody asks an unusual question.",
-    body: `
-      <p class="when-talk-prose__lead">This is one of my favourite situations.</p>
-      <p>You have a good business. You have capable people. Things are working reasonably well.</p>
-      <p class="when-talk-beat">And yet…</p>
-      <p>You have a feeling there's another opportunity hiding in plain sight.</p>
-      <p class="when-talk-prose__aside">Perhaps it's: a new partnership; a different audience; a stronger positioning; a new commercial idea; or simply another way of looking at what you already have.</p>
-    `,
-  },
-  {
-    id: 'partner',
-    number: '05',
-    navLabel: 'Partner',
-    reverse: true,
-    title: '…when you want a thinking partner',
-    image: assetUrl('/images/connecting.png'),
-    imageAlt: 'Connecting ideas as a thinking partner',
-    focus: 'Because real commercial growth happens when they work together.',
-    body: `
-      <ul class="when-talk-beats">
-        <li>Sometimes founders don't need another marketing services provider.</li>
-        <li>They need someone to think with.</li>
-        <li>Someone who enjoys asking difficult questions.</li>
-        <li>Someone who challenges assumptions respectfully.</li>
-        <li>Someone who naturally connects ideas that don't always seem related.</li>
-      </ul>
-      <div class="when-talk-tags">
-        <span>Customer psychology</span>
-        <span>Commercial strategy</span>
-        <span>Positioning</span>
-        <span>Communications</span>
-        <span>Creative thinking</span>
-      </div>
-      <p>Not because those disciplines are separate.</p>
-    `,
-  },
+/* 04 — What I can help with ---------------------------------------- */
+
+export const HELP_LABEL = 'What I can help with';
+export const HELP_TITLE = 'Most business problems\ndon’t live in one box.';
+export const HELP_LEDE =
+  'I help connect the dots across strategy, insight, positioning, creative and commercial action.';
+
+export const HELP_CENTER = 'The Business';
+
+export const HELP_ORBIT = [
+  'Customer understanding',
+  'Positioning',
+  'Messaging',
+  'Brand',
+  'Go-to-market',
+  'Commercial strategy',
+  'Creative direction',
+  'Partnerships',
 ];
 
-export const WHEN_NEXT_PARAGRAPHS = [
-  {
-    html: 'Every engagement starts in the same place: <strong>Research.</strong>',
-    role: 'research',
-    label: '01',
-    title: 'Research',
-  },
-  {
-    html: "We'll explore your business, your customers, your ambitions and the challenges you're facing.",
-    role: 'explore',
-    label: '02',
-    title: 'Explore',
-  },
-  {
-    html: 'Sometimes the outcome is a Strategy Sprint — a focused project that helps us understand your business, uncover opportunities and decide where your time and energy will have the greatest commercial impact.',
-    role: 'outcomes',
-    label: '03',
-    title: 'Outcomes',
-  },
-  {
-    html: "Sometimes it's a new website. Sometimes it's a positioning project, an advertising campaign, an event concept or an opportunity neither of us could have predicted at the start.",
-    role: 'outcomes-detail',
-  },
-  { html: "The deliverables vary. The purpose doesn't.", role: 'divider' },
-  { html: 'The goal is always the same:', highlight: true, role: 'goal' },
-  {
-    html: 'To help you see your business more clearly, discover opportunities you didn\'t know were there, and communicate your value with confidence.',
-    highlight: true,
-    role: 'goal-detail',
-  },
+/* 05 — Not every problem needs me ----------------------------------- */
+
+export const NOT_FIT_LABEL = 'And sometimes,\nwe shouldn’t talk.';
+export const NOT_FIT_TITLE = 'And sometimes,\nwe shouldn’t talk.';
+export const NOT_FIT_LEDE =
+  'If you already know exactly what needs to be done and simply need someone to execute it, I may not be the right fit.';
+
+export const NOT_FIT_ITEMS = [
+  'Volume production',
+  'A conventional marketing retainer',
+  'Someone to simply follow a brief',
+  'Another pair of hands',
 ];
 
-export const WHEN_CTA_LINES = [
-  { tag: 'eyebrow', text: 'Ready when you are' },
-  { tag: 'h2', text: "Let's talk" },
-  { tag: 'p', text: "If you've read this page and found yourself thinking," },
-  { tag: 'quote', text: '"That\'s exactly where I am."' },
-  { tag: 'p', text: "I'd love to hear your story." },
-  { tag: 'p', text: 'Not because I already have the answers.' },
-  {
-    tag: 'p',
-    text: 'Because the right questions often lead us somewhere much more interesting than either of us expected.',
-  },
+export const NOT_FIT_CLOSER = 'Good fit matters.';
+
+/* 06 — The conversation ---------------------------------------------- */
+
+export const CONVERSATION_LABEL = 'The conversation';
+export const CONVERSATION_TITLE = 'A different kind\nof conversation.';
+export const CONVERSATION_LEDE = 'We start by understanding, not assuming.';
+
+export const CONVERSATION_QUESTIONS = [
+  'What are you trying to change?',
+  'What have you already tried?',
+  'What does your customer actually see?',
+  'What do you believe is happening?',
+  'What if the problem is somewhere else?',
 ];
 
-export function renderIntroStory() {
-  const hook = WHEN_INTRO_PARAGRAPHS.slice(0, 2);
-  const signals = WHEN_INTRO_SIGNALS.map(
-    (text, i) =>
-      `<li class="when-talk-signals__item"><span class="when-talk-signals__num scrolly-number">${String(i + 1).padStart(2, '0')}</span><span class="when-talk-signals__text">${text}</span></li>`,
-  ).join('');
+export const CONVERSATION_RESOLUTION = 'We don’t need to know the answer before we start talking.';
 
-  return `
-    <div class="when-talk-story when-talk-story--intro">
-      <p class="when-talk-story__hook">${hook[0]}</p>
-      <p class="when-talk-story__hook when-talk-story__hook--accent">${hook[1]}</p>
-      <ul class="when-talk-signals" aria-label="Signals something isn't working">${signals}</ul>
-      <p class="when-talk-story__bridge highlight-text">${WHEN_INTRO_INSIGHT}</p>
-    </div>`;
-}
+/* 07 — First conversation --------------------------------------------- */
 
-export function renderIntroParagraphs() {
-  return renderIntroStory();
-}
+export const FIRST_LABEL = 'The first conversation';
+export const FIRST_NUMBER = '01';
+export const FIRST_TITLE = 'A conversation.';
+export const FIRST_LEDE =
+  'No pitch deck. No complicated process. Just a chance to understand what’s happening and whether I can help.';
+export const FIRST_CTA = 'Let’s talk';
+export const FIRST_IMAGE = assetUrl('/images/research.png');
+export const FIRST_IMAGE_ALT =
+  'An empty stone table and two chairs in a quiet architectural space, warm light falling across the room';
 
-export function renderNextStory() {
-  const steps = WHEN_NEXT_PARAGRAPHS.filter((p) => p.label && p.title);
-  const stepsHtml = steps
-    .map(
-      (step) => `
-      <li class="when-talk-next-step">
-        <span class="when-talk-next-step__num scrolly-number">${step.label}</span>
-        <div class="when-talk-next-step__copy">
-          <h3 class="when-talk-next-step__title">${step.title}</h3>
-          <p>${step.html}</p>
-        </div>
-      </li>`,
-    )
-    .join('');
+/* 08 — Final CTA --------------------------------------------------------- */
 
-  const detail = WHEN_NEXT_PARAGRAPHS.find((p) => p.role === 'outcomes-detail');
-  const divider = WHEN_NEXT_PARAGRAPHS.find((p) => p.role === 'divider');
-  const goal = WHEN_NEXT_PARAGRAPHS.filter((p) => p.role === 'goal' || p.role === 'goal-detail');
-
-  return `
-    <ol class="when-talk-next-steps">${stepsHtml}</ol>
-    ${detail ? `<p class="when-talk-next__detail">${detail.html}</p>` : ''}
-    ${divider ? `<p class="when-talk-next__divider">${divider.html}</p>` : ''}
-    <div class="when-talk-next__goal-block">
-      ${goal.map((g) => `<p class="highlight-text">${g.html}</p>`).join('')}
-    </div>`;
-}
-
-export function renderNextParagraphs() {
-  return renderNextStory();
-}
-
-export function renderWhenScenarioNav() {
-  return WHEN_SCENARIOS.map(
-    (s) =>
-      `<a href="#scenario-${s.id}" class="when-talk-nav__chip" data-scenario-nav="${s.id}"><span class="when-talk-nav__chip-num">${s.number}</span>${s.navLabel}</a>`,
-  ).join('');
-}
-
-export function renderWhenScenario(scenario, index) {
-  const reverseClass = scenario.reverse ? ' split--reverse' : '';
-  const focusHtml = scenario.focus
-    ? `<blockquote class="when-talk-scenario__focus">${scenario.focus}</blockquote>`
-    : '';
-  return `
-    <article class="when-talk-scenario when-talk-scenario--${scenario.id} split${reverseClass}" id="scenario-${scenario.id}" data-scenario="${scenario.id}" style="--scenario-index: ${index}">
-      <div class="split__text when-talk-scenario__panel">
-        <span class="when-talk-scenario__index scrolly-number">${scenario.number}</span>
-        <h2 class="when-talk-scenario__title">${scenario.title}</h2>
-        <div class="when-talk-scenario__body when-talk-prose">${scenario.body}</div>
-        ${focusHtml}
-      </div>
-      <figure class="split__image when-talk-scenario__media" data-when-talk-tilt>
-        <div class="when-talk-scenario__frame">
-          <div class="when-talk-scenario__tilt" data-when-talk-tilt-inner>
-            <img src="${scenario.image}" alt="${scenario.imageAlt}" loading="lazy" decoding="async" width="800" height="800">
-          </div>
-        </div>
-      </figure>
-    </article>
-  `;
-}
+export const FINAL_TITLE = 'Two perspectives.\nOne clearer direction.';
+export const FINAL_LEDE = 'Have something worth thinking through?';
+export const FINAL_CTA = 'Start a conversation';
+export const FINAL_IMAGE = assetUrl('/images/hero-portal-perspective.jpg');
+export const FINAL_IMAGE_ALT =
+  'The same stone passage now fully lit, a calm path leading through the opening toward the horizon';

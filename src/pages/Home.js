@@ -45,7 +45,7 @@ import {
   CONNECTING_VISUAL_IMAGE,
 } from '../utils/connecting-content.js';
 import { BEYOND_HERO_ALT, BEYOND_HERO_IMAGE, BEYOND_QUESTIONS } from '../utils/beyond-questions.js';
-import { PERSPECTIVE_HERO_ALT, PERSPECTIVE_HERO_POSTER, PERSPECTIVE_HERO_VIDEO, PERSPECTIVE_OBSERVATIONS } from '../utils/perspective-blindspots.js';
+import { PERSPECTIVE_HERO_ALT, PERSPECTIVE_HERO_POSTER, PERSPECTIVE_HERO_VIDEO } from '../utils/perspective-blindspots.js';
 import {
   CURIOSITY_BOOKS,
   CURIOSITY_INTRO,
@@ -68,7 +68,7 @@ export async function HomePage() {
   const page = await getPage('home');
   const f = page?.fields || {};
   const heroSub = slot(f.gladhat_home_hero_sub, "Most founders don't need more ideas.<br>\n            They need a different perspective.");
-  const heroCta = slot(f.gladhat_home_hero_cta, "Let's Talk");
+  const heroCta = slot(f.gladhat_home_hero_cta, 'See how I think');
   const heroVisual = imageUrl(f.gladhat_home_hero_image, assetUrl('/images/hero-portal-perspective.jpg'));
   const scrolly1 = imageUrl(f.gladhat_home_q1_image, assetUrl('/images/epic_founders.png'));
   const scrolly3 = imageUrl(f.gladhat_home_bento1_image, assetUrl('/images/epic_essence.png'));
@@ -109,6 +109,16 @@ export async function HomePage() {
 
     <!-- 01 · Hero -->
     <section class="hero hero--editorial hero--portal section-hero" id="section-hero" aria-label="Hero">
+      <video
+        class="hero__bg-video"
+        src="${assetUrl('/hero-video.mp4')}"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+      ></video>
+      <div class="hero__bg-video-overlay" aria-hidden="true"></div>
       <div
         class="hero__layout"
         data-island="hero-motion"
@@ -119,7 +129,7 @@ export async function HomePage() {
         <div class="hero__content">
           <p class="hero__section-label">
             <span class="hero__section-num" aria-hidden="true">01</span>
-            <span>A different way of seeing</span>
+            <span>Commercial Strategy</span>
           </p>
           <h1 class="hero__title">
             A different way of <span class="accent">seeing.</span>
@@ -133,100 +143,56 @@ export async function HomePage() {
             </a>
           </div>
         </div>
-        <div class="hero__media">
-          <div class="hero-portal">
-            <figure class="hero-portal__figure">
-              <div class="hero-portal__image-wrap">
-                <img src="${heroVisual}" alt="A person stands inside a dark architectural passage, facing a large circular opening that reveals a clear, sunlit mountain and lake landscape beyond" id="hero-image" width="1400" height="1208">
+      </div>
+
+      <div class="marquee-container section-client-marquee hero__marquee" id="section-client-marquee" aria-label="Client marquee">
+        <div class="marquee-track">
+          ${Array(4).fill().map(() => `
+            <div class="marquee-item">
+              <div class="marquee-brand">
+                <span class="marquee-text">Server Factory</span>
               </div>
-              <div class="hero-portal__fade" aria-hidden="true"></div>
-              <div class="hero-portal__ring" aria-hidden="true"></div>
-              <p class="hero-portal__caption">
-                <span>Same business.</span>
-                <span class="hero-portal__caption-line--accent">A different perspective.</span>
-              </p>
-            </figure>
-          </div>
+              <span class="marquee-separator">✦</span>
+              <div class="marquee-brand">
+                <span class="marquee-text">First Light</span>
+              </div>
+              <span class="marquee-separator">✦</span>
+              <div class="marquee-brand">
+                <span class="marquee-text">Tonbo</span>
+              </div>
+              <span class="marquee-separator">✦</span>
+              <div class="marquee-brand">
+                <span class="marquee-text">enSights</span>
+              </div>
+              <span class="marquee-separator">✦</span>
+              <div class="marquee-brand">
+                <span class="marquee-text">Provengo</span>
+              </div>
+              <span class="marquee-separator">✦</span>
+            </div>
+          `).join('')}
         </div>
       </div>
     </section>
-
-    <div class="marquee-container section-client-marquee" id="section-client-marquee" aria-label="Client marquee">
-      <div class="marquee-track">
-        ${Array(4).fill().map(() => `
-          <div class="marquee-item">
-            <div class="marquee-brand">
-              <img src="${assetUrl('/images/logos/server_factory.png')}" alt="Server Factory Logo" class="marquee-logo-img" loading="lazy">
-              <span class="marquee-text">Server Factory</span>
-            </div>
-            <span class="marquee-separator">✦</span>
-            <div class="marquee-brand">
-              <img src="${assetUrl('/images/logos/first_light.png')}" alt="First Light Logo" class="marquee-logo-img" loading="lazy">
-              <span class="marquee-text">First Light</span>
-            </div>
-            <span class="marquee-separator">✦</span>
-            <div class="marquee-brand">
-              <img src="${assetUrl('/images/logos/tonbo.png')}" alt="Tonbo Logo" class="marquee-logo-img" loading="lazy">
-              <span class="marquee-text">Tonbo</span>
-            </div>
-            <span class="marquee-separator">✦</span>
-            <div class="marquee-brand">
-              <img src="${assetUrl('/images/logos/ensights.png')}" alt="enSights Logo" class="marquee-logo-img" loading="lazy">
-              <span class="marquee-text">enSights</span>
-            </div>
-            <span class="marquee-separator">✦</span>
-            <div class="marquee-brand">
-              <img src="${assetUrl('/images/logos/provengo.svg')}" alt="Provengo Logo" class="marquee-logo-img" loading="lazy">
-              <span class="marquee-text">Provengo</span>
-            </div>
-            <span class="marquee-separator">✦</span>
-          </div>
-        `).join('')}
-      </div>
-    </div>
 
     <!-- 02 · Perspective (too close to see it clearly) -->
     <section class="perspective-band section-perspective" id="section-perspective" aria-label="Too close to see it clearly">
       <div class="container perspective-band__root" data-island="perspective">
         <div class="perspective-band__shell">
-          <div class="perspective-band__top">
-            <header class="perspective-band__copy">
-              <p class="perspective-band__label">
-                <span class="perspective-band__label-num" aria-hidden="true">02</span>
-                <span class="perspective-band__label-text">Too close to see it clearly?</span>
-              </p>
-              <h2 class="perspective-band__title">Too close to<br>see it <span class="accent">clearly?</span></h2>
-              <div class="perspective-band__intro">
-                <p>When you live with your business, you tend to stop noticing what confuses potential customers.</p>
-                <p>That's normal. It's what happens when you're too close.</p>
-              </div>
-              <div class="perspective-band__actions">
-                <a href="/working-together" class="text-link perspective-band__link">Step back <span aria-hidden="true">→</span></a>
-              </div>
-            </header>
-            <div class="perspective-band__visual-col">
-              <figure class="perspective-band__visual-wrap">
-                <video class="perspective-band__hero-video" src="${PERSPECTIVE_HERO_VIDEO}" poster="${PERSPECTIVE_HERO_POSTER}" aria-label="${PERSPECTIVE_HERO_ALT}" muted playsinline loop autoplay preload="auto"></video>
-              </figure>
+          <header class="perspective-band__copy">
+            <p class="perspective-band__label">
+              <span class="perspective-band__label-num" aria-hidden="true">02</span>
+              <span class="perspective-band__label-text">Too close to see it clearly?</span>
+            </p>
+            <h2 class="perspective-band__title">Too close to<br>see it <span class="accent">clearly?</span></h2>
+            <div class="perspective-band__intro">
+              <p>When you live with your business, you stop seeing what's obvious to everyone else. The bigger picture is there — you're just standing too close to it.</p>
             </div>
-          </div>
-          <div class="perspective-band__observations-panel">
-            <ol class="perspective-band__observations">
-              ${PERSPECTIVE_OBSERVATIONS.map(
-                (item, index) => `
-              <li class="perspective-band__observation-item${index === 0 ? ' perspective-band__observation-item--active' : ''}">
-                <button type="button" class="perspective-band__observation-btn" aria-current="${index === 0 ? 'true' : 'false'}">
-                  <span class="perspective-band__observation-body">
-                    <span class="perspective-band__observation-num" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
-                    <span class="perspective-band__observation-text">${item.text}</span>
-                  </span>
-                  <span class="perspective-band__observation-icon-wrap">
-                    <img class="perspective-band__observation-icon" src="${item.icon}" alt="${item.iconAlt}" loading="lazy" width="64" height="64">
-                  </span>
-                </button>
-              </li>`
-              ).join('')}
-            </ol>
+          </header>
+          <div class="perspective-band__visual-col">
+            <figure class="perspective-band__visual-wrap">
+              <video class="perspective-band__hero-video" src="${PERSPECTIVE_HERO_VIDEO}" poster="${PERSPECTIVE_HERO_POSTER}" aria-label="${PERSPECTIVE_HERO_ALT}" muted playsinline loop autoplay preload="auto"></video>
+            </figure>
           </div>
         </div>
       </div>

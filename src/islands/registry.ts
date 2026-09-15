@@ -15,12 +15,13 @@ import { ThinkingDifferenceMotion } from './islands/ThinkingDifferenceMotion';
 import { ConversationSpotlightMotion } from './islands/ConversationSpotlightMotion';
 import { WhatIfMotion } from './islands/WhatIfMotion';
 import { WhenTalkCtaMotion } from './islands/WhenTalkCtaMotion';
-import { WhenTalkFocusMotion } from './islands/WhenTalkFocusMotion';
 import { WhenTalkHeroMotion } from './islands/WhenTalkHeroMotion';
-import { WhenTalkHeroSceneIsland } from './islands/WhenTalkHeroScene';
-import { WhenTalkIntroMotion } from './islands/WhenTalkIntroMotion';
-import { WhenTalkNextMotion } from './islands/WhenTalkNextMotion';
-import { WhenTalkScenariosMotion } from './islands/WhenTalkScenariosMotion';
+import { WhenTalkRecognitionMotion } from './islands/WhenTalkRecognitionMotion';
+import { WhenTalkDeeperMotion } from './islands/WhenTalkDeeperMotion';
+import { WhenTalkHelpMotion } from './islands/WhenTalkHelpMotion';
+import { WhenTalkNotFitMotion } from './islands/WhenTalkNotFitMotion';
+import { WhenTalkConversationMotion } from './islands/WhenTalkConversationMotion';
+import { WhenTalkFirstMotion } from './islands/WhenTalkFirstMotion';
 import { FooterMotion } from './islands/FooterMotion';
 
 export type IslandComponent = ComponentType<IslandProps>;
@@ -41,11 +42,12 @@ export const islandRegistry: Record<string, IslandComponent> = {
   'what-if': WhatIfMotion,
   'conversation-spotlight': ConversationSpotlightMotion,
   'when-talk-hero': WhenTalkHeroMotion,
-  'when-talk-scene': WhenTalkHeroSceneIsland,
-  'when-talk-intro': WhenTalkIntroMotion,
-  'when-talk-focus': WhenTalkFocusMotion,
-  'when-talk-scenarios': WhenTalkScenariosMotion,
-  'when-talk-next': WhenTalkNextMotion,
+  'when-talk-recognition': WhenTalkRecognitionMotion,
+  'when-talk-deeper': WhenTalkDeeperMotion,
+  'when-talk-help': WhenTalkHelpMotion,
+  'when-talk-not-fit': WhenTalkNotFitMotion,
+  'when-talk-conversation': WhenTalkConversationMotion,
+  'when-talk-first': WhenTalkFirstMotion,
   'when-talk-cta': WhenTalkCtaMotion,
   'footer-motion': FooterMotion,
 };

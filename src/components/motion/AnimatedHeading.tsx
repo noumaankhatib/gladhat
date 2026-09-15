@@ -53,7 +53,13 @@ export function AnimatedHeading({
         return (
           <span
             key={`${word}-${index}`}
-            style={{ display: 'inline-block', overflow: 'hidden', verticalAlign: 'top' }}
+            style={{
+              display: 'inline-block',
+              overflow: 'hidden',
+              verticalAlign: 'top',
+              paddingBottom: '0.2em',
+              marginBottom: '-0.2em',
+            }}
           >
             <m.span
               style={{ display: 'inline-block' }}
