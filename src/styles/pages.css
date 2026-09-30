@@ -373,83 +373,6 @@
   color: var(--color-signal);
 }
 
-.exercises {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  counter-reset: exercise;
-}
-
-.exercise {
-  display: grid;
-  grid-template-columns: minmax(6rem, 0.22fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  padding-block: clamp(2.25rem, 4.5vw, 3.75rem);
-  border-top: 1px solid var(--color-border);
-}
-
-.exercise:last-child {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.exercise__num {
-  position: sticky;
-  top: calc(var(--header-height) + 1.5rem);
-  align-self: start;
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 7vw, 6rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: var(--color-signal);
-}
-
-.exercise__body.prose {
-  max-width: 40rem;
-  margin: 0;
-}
-
-.exercise__question {
-  margin: 0 0 1.25rem;
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3vw, 2.6rem);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: var(--color-ink);
-  max-width: 22ch;
-}
-
-.prose .exercise__prompt {
-  position: relative;
-  margin: var(--space-lg) 0;
-  padding: 1.1rem 1.35rem 1.1rem 1.35rem;
-  border-radius: 0.75rem;
-  background: var(--color-white);
-  box-shadow: inset 3px 0 0 var(--color-signal), 0 0 0 1px rgba(23, 33, 59, 0.06);
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
-  font-style: italic;
-  line-height: 1.35;
-  color: var(--color-ink);
-}
-
-.exercise__lines {
-  display: grid;
-  gap: 0;
-  max-width: 32rem;
-  margin-top: var(--space-lg);
-}
-
-.exercise__lines span {
-  display: block;
-  height: 2.25rem;
-  border-bottom: 1px dashed rgba(23, 33, 59, 0.16);
-}
-
 .see-final__close,
 .prose .see-final__close {
   margin-top: var(--space-xl);
@@ -728,16 +651,6 @@
     font-size: clamp(2.75rem, 13vw, 3.75rem);
   }
 
-  .exercise {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .exercise__num {
-    position: static;
-    font-size: 3.25rem;
-  }
-
   .process__steps::before {
     display: none;
   }
@@ -856,4 +769,628 @@
   .when-talk-layers__bridge {
     display: none;
   }
+}
+
+/* ── See Differently — guided workbook ───────────
+      Sticky index + progress on the left, one lined
+      notebook page per exercise on the right. ── */
+
+.workbook__grid {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.36fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.workbook__rail {
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+}
+
+.workbook__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-ink);
+}
+
+.workbook__intro {
+  margin: 0 0 2rem;
+  max-width: 28ch;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.workbook__progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.workbook__progress-count {
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-text-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.workbook__progress-count [data-workbook-current] {
+  color: var(--color-signal);
+}
+
+.workbook__progress-track {
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(23, 33, 59, 0.1);
+  overflow: hidden;
+}
+
+.workbook__progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-signal);
+  transform: scaleX(calc(1 / 6));
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.workbook__index {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.workbook__index-link {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-subtle);
+  text-decoration: none;
+  transition: color var(--dur-base) var(--ease-out), padding var(--dur-base) var(--ease-out);
+}
+
+.workbook__index-num {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.workbook__index-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.workbook__index-link:hover,
+.workbook__index-link:focus-visible {
+  color: var(--color-ink);
+}
+
+.workbook__index-link.is-done {
+  color: var(--color-text-muted);
+}
+
+.workbook__index-link.is-done .workbook__index-num::after {
+  content: ' ✓';
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--color-signal);
+}
+
+.workbook__index-link.is-active {
+  padding-left: 0.6rem;
+  color: var(--color-ink);
+  box-shadow: inset 2px 0 0 var(--color-signal);
+}
+
+.workbook__index-link.is-active .workbook__index-num {
+  color: var(--color-signal);
+}
+
+.workbook__index-link.is-active .workbook__index-label {
+  font-weight: 600;
+}
+
+/* Pages */
+
+.workbook__pages {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.workbook-page {
+  position: relative;
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+  padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1.5rem, 3.5vw, 3rem) clamp(1.5rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4.25rem);
+  border-radius: 1rem;
+  background:
+    /* margin rule */
+    linear-gradient(90deg,
+      transparent calc(clamp(1.5rem, 3vw, 2.75rem) - 1px),
+      rgba(255, 122, 0, 0.3) calc(clamp(1.5rem, 3vw, 2.75rem) - 1px),
+      rgba(255, 122, 0, 0.3) clamp(1.5rem, 3vw, 2.75rem),
+      transparent clamp(1.5rem, 3vw, 2.75rem)),
+    var(--color-white);
+  box-shadow:
+    0 0 0 1px rgba(23, 33, 59, 0.06),
+    0 30px 60px -44px rgba(23, 33, 59, 0.35);
+  transition: box-shadow 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.workbook-page.is-active {
+  box-shadow:
+    0 0 0 1px rgba(255, 122, 0, 0.28),
+    0 40px 80px -44px rgba(23, 33, 59, 0.45);
+}
+
+.workbook-page__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.workbook-page__num {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.25rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--color-signal);
+}
+
+.workbook-page__of {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.workbook-page__body.prose {
+  max-width: 40rem;
+  margin: 0;
+}
+
+.workbook-page__body.prose p {
+  font-size: 1.0625rem;
+}
+
+.workbook-page__question {
+  margin: 0 0 1.25rem;
+  max-width: 24ch;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+}
+
+.prose .workbook-page__prompt {
+  margin: var(--space-lg) 0;
+  padding: 1rem 1.25rem;
+  border-radius: 0.6rem;
+  background: rgba(255, 122, 0, 0.07);
+  box-shadow: inset 3px 0 0 var(--color-signal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+
+.workbook-page__notes {
+  display: grid;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.workbook-page__notes-label {
+  margin-bottom: 0.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-text-subtle);
+}
+
+.workbook-page__line {
+  display: block;
+  height: 2.4rem;
+  border-bottom: 1px solid rgba(49, 85, 255, 0.16);
+}
+
+/* Tablet: index collapses to a sticky progress strip */
+@media (max-width: 960px) {
+  .workbook__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .workbook__rail {
+    position: static;
+  }
+
+  .workbook__intro {
+    margin-bottom: 1.25rem;
+  }
+
+  .workbook__index {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    border: 0;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * clamp(1.25rem, 4vw, 2rem));
+    padding: 0 clamp(1.25rem, 4vw, 2rem) 0.25rem;
+  }
+
+  .workbook__index::-webkit-scrollbar {
+    display: none;
+  }
+
+  .workbook__index-link {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-white);
+    white-space: nowrap;
+  }
+
+  .workbook__index-link.is-active {
+    padding-left: 0.95rem;
+    border-color: var(--color-signal);
+    box-shadow: none;
+  }
+
+  .workbook__index-label {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .workbook-page {
+    padding: 1.5rem 1.25rem 1.25rem 2.25rem;
+    background:
+      linear-gradient(90deg,
+        transparent calc(1.25rem - 1px),
+        rgba(255, 122, 0, 0.3) calc(1.25rem - 1px),
+        rgba(255, 122, 0, 0.3) 1.25rem,
+        transparent 1.25rem),
+      var(--color-white);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workbook__progress-fill,
+  .workbook-page {
+    transition: none;
+  }
+}
+
+/* Grid children default to min-width:auto, so the nowrap chip row
+   on small screens stretched the column past the viewport. */
+.workbook__rail,
+.workbook__pages {
+  min-width: 0;
+}
+
+.workbook-page__head {
+  margin-bottom: 0.75rem;
+}
+
+.prose .workbook-page__question {
+  margin-top: 0;
+}
+
+/* ── Footer CTA (case studies, legal, 404) — last cold band ── */
+
+.footer-cta {
+  background: var(--story-cream, #F4EDE2);
+}
+
+/* ── Case studies ────────────────────────────── */
+
+.page-hero.story-hero .hero__title {
+  max-width: 16ch;
+  font-size: clamp(2.75rem, 5.2vw, 5rem);
+}
+
+.story-glance {
+  padding: 0 0 clamp(2.5rem, 5vw, 4rem);
+  background: var(--color-paper);
+}
+
+.story-glance__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: stretch;
+}
+
+.story-glance__cover {
+  margin: 0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 40px 80px -48px rgba(23, 33, 59, 0.45);
+}
+
+.story-glance__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.story-glance__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.story-glance__fact {
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.story-glance__fact--wide {
+  grid-column: 1 / -1;
+}
+
+.story-glance__fact dt {
+  margin-bottom: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.story-glance__fact dd {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+}
+
+.story-glance__fact--wide dd {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+/* Story chapters: heading on the left, narrative on the right,
+   instead of one long 42rem column centred on the page. */
+@media (min-width: 961px) {
+  .prose.story-prose {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    column-gap: clamp(2rem, 6vw, 6rem);
+    max-width: none;
+    margin: 0;
+  }
+
+  .prose.story-prose > * {
+    grid-column: 2;
+    max-width: 38rem;
+  }
+
+  .prose.story-prose > h2 {
+    grid-column: 1;
+    grid-row: 1 / span 60;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+    margin: 0;
+  }
+
+  .prose.story-prose > .story-stats {
+    max-width: none;
+  }
+
+  .prose.story-prose > .story-next {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+}
+
+.prose.story-prose > h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+  max-width: 14ch;
+}
+
+.prose.story-prose > p:first-child:not(.highlight-text) {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.35;
+  color: var(--color-ink);
+}
+
+.story-stats {
+  margin: var(--space-2xl) 0;
+}
+
+.story-next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: stretch;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.prose .story-next__prompt,
+.story-next__prompt {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.story-next__card {
+  display: grid;
+  grid-template-columns: 0.42fr 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  background: var(--color-white);
+  box-shadow: 0 0 0 1px rgba(23, 33, 59, 0.07), 0 24px 48px -36px rgba(23, 33, 59, 0.35);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.story-next__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.35), 0 30px 60px -36px rgba(23, 33, 59, 0.45);
+}
+
+.story-next__card--more {
+  grid-template-columns: 1fr;
+  padding: 1.5rem;
+}
+
+.story-next__media {
+  margin: 0;
+  aspect-ratio: 1;
+  border-radius: 0.65rem;
+  overflow: hidden;
+}
+
+.story-next__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.story-next__body {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.story-next__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+}
+
+.story-next__client {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.story-next__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 960px) {
+  .story-glance__grid,
+  .story-next {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Contact ─────────────────────────────────── */
+
+.contact-card {
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  border-radius: 1.25rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  box-shadow: 0 40px 80px -40px rgba(23, 33, 59, 0.55);
+}
+
+.contact-card__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+}
+
+.contact-card__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-paper);
+}
+
+.contact-card__text {
+  margin: 0 0 1.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255, 253, 248, 0.75);
+}
+
+.contact-card__btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-card__note {
+  margin: 0.85rem 0 1.25rem;
+  font-size: 0.875rem;
+  text-align: center;
+  color: rgba(255, 253, 248, 0.6);
+}
+
+.contact-card__secondary {
+  display: block;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 253, 248, 0.14);
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-paper);
+  text-decoration: none;
+}
+
+.contact-card__secondary:hover {
+  color: var(--color-signal);
+}
+
+.contact-steps {
+  margin-top: 0;
 }

@@ -4,10 +4,11 @@
 
 import { getStory } from '../services/content-service.js';
 import { applyCmsStory } from '../utils/page-compose.js';
+import { storyGlance, storyNext } from '../utils/story-extras.js';
 
 export async function FirstLightPage() {
   const html = `
-    <section class="hero" id="fl-hero" style="min-height: 55vh;">
+    <section class="hero page-hero story-hero" id="fl-hero">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">
@@ -20,9 +21,11 @@ export async function FirstLightPage() {
       </div>
     </section>
 
+    ${storyGlance('firstlight')}
+
     <section class="section" id="fl-opening">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <p>Professor Amit Zoran came to me with something more valuable than a conventional brief: a distinctive vision.</p>
           <p>It brought together technology, nature, education and wellbeing in a way I had not encountered before. Instead of treating technology as something that inevitably distracts us from ourselves, Amit believed it could help us become more present, more aware and more connected with the natural world.</p>
           <p class="highlight-text">The challenge was not creating the idea. It was finding language that allowed other people to understand and feel it.</p>
@@ -32,7 +35,7 @@ export async function FirstLightPage() {
 
     <section class="section section--alt" id="fl-beginning">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Beginning with the idea</h2>
           <p>From a communications perspective, we needed to understand what problems Amit's method was targeting.</p>
           <p>What are the problems caused by our daily use of tech?</p>
@@ -48,7 +51,7 @@ export async function FirstLightPage() {
 
     <section class="section" id="fl-beyond">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Looking beyond the obvious</h2>
           <p>As I explored the wider landscape, I noticed something interesting.</p>
           <p>Many conversations about technology and wellbeing seemed to force people into choosing between two opposing ideas.</p>
@@ -65,7 +68,7 @@ export async function FirstLightPage() {
 
     <section class="section section--alt" id="fl-language">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Finding the right language</h2>
           <p>Once we understood the essence of the project, the creative work became surprisingly natural.</p>
           <p>The name <strong>First Light</strong> emerged because it captured exactly what the project represented.</p>
@@ -81,7 +84,7 @@ export async function FirstLightPage() {
 
     <section class="section" id="fl-experience">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>From brand to experience</h2>
           <p>The website didn't need to explain everything. It needed to invite people into the pathways Amit had uncovered.</p>
           <p>In its clarity, the messaging was calm and simple. It spoke to real needs.</p>
@@ -93,17 +96,12 @@ export async function FirstLightPage() {
 
     <section class="section section--alt" id="fl-lessons">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>What this project taught me</h2>
           <p>Working with Amit was unusual and rewarding. He moves easily between design, software, philosophy and research, producing ideas faster than most people could absorb them.</p>
           <p>The challenge was not generating possibilities. It was deciding which ideas would help an unfamiliar audience understand First Light and recognise why it mattered.</p>
           <p class="highlight-text">Research gave us the filter. Once the picture became clear, the name, messages and design direction became simpler. Everything began to work together.</p>
-
-          <div style="margin-top: var(--space-3xl); display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
-            <a href="/contact" class="btn btn--primary" id="fl-cta">Let's Talk <span class="btn-arrow">→</span></a>
-            <a href="/tonbo" class="btn btn--outline" id="fl-next">Read the Tonbo story <span class="btn-arrow">→</span></a>
-            <a href="/work" class="text-link" id="fl-back">← Back to True Stories</a>
-          </div>
+          ${storyNext('firstlight')}
         </div>
       </div>
     </section>

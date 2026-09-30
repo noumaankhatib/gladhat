@@ -4,10 +4,11 @@
 
 import { getStory } from '../services/content-service.js';
 import { applyCmsStory } from '../utils/page-compose.js';
+import { storyGlance, storyNext } from '../utils/story-extras.js';
 
 export async function EnSightsPage() {
   const html = `
-    <section class="hero" id="en-hero" style="min-height: 55vh;">
+    <section class="hero page-hero story-hero" id="en-hero">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">
@@ -20,9 +21,11 @@ export async function EnSightsPage() {
       </div>
     </section>
 
+    ${storyGlance('ensights')}
+
     <section class="section" id="en-opening">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <p>When I first started working with enSights, the technology was not unique, but it was certainly ahead of the curve.</p>
           <p>enSights is a SaaS platform that helps organisations operating solar assets improve performance, identify faults and make better operational decisions.</p>
           <p>The startup was already doing business and had a growing list of clients. The communications challenge was helping people understand why enSights mattered.</p>
@@ -35,7 +38,7 @@ export async function EnSightsPage() {
 
     <section class="section section--alt" id="en-language">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Speaking the customer's language</h2>
           <p>We explored existing messaging. Not because it was poor, but because it did not always reflect the conversations customers were actually having.</p>
           <p>We discussed positioning.</p>
@@ -49,7 +52,7 @@ export async function EnSightsPage() {
 
     <section class="section" id="en-conversation">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>The best work happened in conversation</h2>
           <p>A key part of the project was positioning enSights as industry insiders who understand the concerns of renewable energy asset owners and operators.</p>
           <p>The chosen method was LinkedIn articles. The content was semi-technical.</p>
@@ -62,7 +65,7 @@ export async function EnSightsPage() {
 
     <section class="section section--alt" id="en-beyond">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Beyond content</h2>
           <p>As the relationship developed, the work expanded.</p>
           <p>I interviewed customers and created videos.</p>
@@ -75,16 +78,11 @@ export async function EnSightsPage() {
 
     <section class="section" id="en-lessons">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>What this project taught me</h2>
           <p>When someone is willing to keep asking, "Why does that matter?" and someone technical is willing to keep explaining, complicated subjects become easier to understand. This way, businesses begin to communicate more naturally and expertise becomes translatable.</p>
           <p class="highlight-text">Sometimes my role isn't just to provide the answers; it's first to create the conditions in which better answers can emerge.</p>
-
-          <div style="margin-top: var(--space-3xl); display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
-            <a href="/contact" class="btn btn--primary" id="en-cta">Let's Talk <span class="btn-arrow">→</span></a>
-            <a href="/provengo" class="btn btn--outline" id="en-next">Read the Provengo story <span class="btn-arrow">→</span></a>
-            <a href="/work" class="text-link" id="en-back">← Back to True Stories</a>
-          </div>
+          ${storyNext('ensights')}
         </div>
       </div>
     </section>

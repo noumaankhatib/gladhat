@@ -11,7 +11,7 @@ export const HERO_TITLE_LINES = ['Something isn’t', 'quite clicking.'];
 export const HERO_SUBTITLE =
   'You might not need another agency. You might need someone to look at the problem differently.';
 export const HERO_CTA = 'See if this sounds familiar';
-export const HERO_IMAGE = assetUrl('/images/hero-portal-perspective.jpg');
+export const HERO_IMAGE = assetUrl('/images/hero-portal-perspective.webp');
 export const HERO_IMAGE_ALT =
   'A passage between large stone forms opens onto a sunlit mountain landscape and a clear path ahead';
 
@@ -107,7 +107,7 @@ export const FIRST_TITLE = 'A conversation.';
 export const FIRST_LEDE =
   'No pitch deck. No complicated process. Just a chance to understand what’s happening and whether I can help.';
 export const FIRST_CTA = 'Let’s talk';
-export const FIRST_IMAGE = assetUrl('/images/research.png');
+export const FIRST_IMAGE = assetUrl('/images/research.webp');
 export const FIRST_IMAGE_ALT =
   'An empty stone table and two chairs in a quiet architectural space, warm light falling across the room';
 
@@ -116,6 +116,6 @@ export const FIRST_IMAGE_ALT =
 export const FINAL_TITLE = 'Two perspectives.\nOne clearer direction.';
 export const FINAL_LEDE = 'Have something worth thinking through?';
 export const FINAL_CTA = 'Start a conversation';
-export const FINAL_IMAGE = assetUrl('/images/hero-portal-perspective.jpg');
+export const FINAL_IMAGE = assetUrl('/images/hero-portal-perspective.webp');
 export const FINAL_IMAGE_ALT =
   'The same stone passage now fully lit, a calm path leading through the opening toward the horizon';

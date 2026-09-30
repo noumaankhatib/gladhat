@@ -4,10 +4,11 @@
 
 import { getStory } from '../services/content-service.js';
 import { applyCmsStory } from '../utils/page-compose.js';
+import { storyGlance, storyNext } from '../utils/story-extras.js';
 
 export async function ServerFactoryPage() {
   const html = `
-    <section class="hero" id="sf-hero" style="min-height: 55vh;">
+    <section class="hero page-hero story-hero" id="sf-hero">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">
@@ -20,9 +21,11 @@ export async function ServerFactoryPage() {
       </div>
     </section>
 
+    ${storyGlance('server-factory')}
+
     <section class="section" id="sf-opening">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <p>When I first started working with Server Factory, the conversation wasn't about psychology. It wasn't about positioning. It wasn't even about websites.</p>
           <p>Like many growing businesses, they wanted more enquiries, more opportunities and more sales.</p>
           <p>The obvious answer seemed to be a new website, Google Ads, connected LinkedIn, and better-designed trade show booths.</p>
@@ -35,7 +38,7 @@ export async function ServerFactoryPage() {
 
     <section class="section section--alt" id="sf-curiosity">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Starting with curiosity</h2>
           <p>I began by spending time understanding the business from different perspectives.</p>
           <p>I interviewed members of the team.</p>
@@ -57,7 +60,7 @@ export async function ServerFactoryPage() {
 
     <section class="section" id="sf-buyer">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Looking through the buyer's eyes</h2>
           <p>As I explored the online market, one thing became impossible to ignore.</p>
           <p>A proportion of competitors were selling servers. They offered what amounted to a catalogue.</p>
@@ -75,7 +78,7 @@ export async function ServerFactoryPage() {
 
     <section class="section section--alt" id="sf-confidence">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Building confidence before selling</h2>
           <p>The website wasn't simply redesigned.</p>
           <p>It was reorganised around the ways the two different types of customers actually think.</p>
@@ -88,7 +91,7 @@ export async function ServerFactoryPage() {
 
     <section class="section" id="sf-strategy">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>From website to commercial strategy</h2>
           <p>Something interesting happened along the way.</p>
           <p>The project stopped being about a website.</p>
@@ -105,11 +108,11 @@ export async function ServerFactoryPage() {
 
     <section class="section section--alt" id="sf-results">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>The results</h2>
           <p>The website became much more than a marketing asset. It became a tool designed to support buying decisions, where an SEO and AEO strategy was implemented before copywriting began. Organic leads have grown exponentially.</p>
 
-          <div class="grid grid--3" style="margin: var(--space-3xl) 0;">
+          <div class="grid grid--3 story-stats">
             <div class="stat reveal reveal--delay-1">
               <div class="stat__value">$7,500</div>
               <div class="stat__label">Media spend (3-month pilot)</div>
@@ -131,19 +134,14 @@ export async function ServerFactoryPage() {
 
     <section class="section" id="sf-lessons">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>What this project taught me</h2>
           <p>Before better marketing, businesses need a clearer understanding of how their customers make decisions.</p>
           <p>Once you understand that, the messaging becomes clearer.</p>
           <p>The website becomes easier to structure. Advertising becomes more effective. New opportunities begin to appear.</p>
           <p class="highlight-text">This project reminded me that the most valuable work often happens long before a headline is written or a campaign goes live.</p>
           <p>It begins by asking better questions, by taking a step back and seeing the business through different eyes.</p>
-
-          <div style="margin-top: var(--space-3xl); display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
-            <a href="/contact" class="btn btn--primary" id="sf-cta">Let's Talk <span class="btn-arrow">→</span></a>
-            <a href="/firstlight" class="btn btn--outline" id="sf-next">Read the First Light story <span class="btn-arrow">→</span></a>
-            <a href="/work" class="text-link" id="sf-back">← Back to True Stories</a>
-          </div>
+          ${storyNext('server-factory')}
         </div>
       </div>
     </section>

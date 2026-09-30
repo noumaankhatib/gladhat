@@ -22,6 +22,11 @@ export function Footer(currentPath = '/') {
     '/about',
     '/theblog',
     '/contact',
+    '/server-factory',
+    '/firstlight',
+    '/tonbo',
+    '/ensights',
+    '/provengo',
   ].includes(currentPath.replace(/\/+$/, '') || '/');
 
   const exploreLinks = NAV_ITEMS.map((item) => `

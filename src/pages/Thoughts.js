@@ -53,7 +53,7 @@ export async function ThoughtsPage() {
         excerpt: typeof p.excerpt === 'string' ? p.excerpt.replace(/<[^>]+>/g, '').trim() : '',
         date: p.date || '',
         tag: p.tag || 'Thoughts',
-        image: imageUrl(p.image, assetUrl('/images/curiosity.png')),
+        image: imageUrl(p.image, assetUrl('/images/curiosity.webp')),
       }))
     : [];
 
@@ -93,7 +93,7 @@ export async function ThoughtsPage() {
             </span>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${featuredArticle.image || assetUrl('/images/curiosity.png')}" alt="${featuredArticle.title}" loading="lazy" style="border-radius: var(--radius-md); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <img src="${featuredArticle.image || assetUrl('/images/curiosity.webp')}" alt="${featuredArticle.title}" loading="lazy" style="border-radius: var(--radius-md); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
           </div>
         </div>
 
@@ -118,7 +118,7 @@ export async function ThoughtsPage() {
             </div>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/prism.png')}" alt="A glass prism refracting a beam of light" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/prism.webp')}" alt="A glass prism refracting a beam of light" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
@@ -168,7 +168,7 @@ export async function ThoughtsPage() {
             <p class="highlight-text">If one of these articles starts a conversation or helps you see something a little differently, then it has done its job.</p>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/curiosity.png')}" alt="An open notebook and a magnifying glass on a desk in warm lamplight" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/curiosity.webp')}" alt="An open notebook and a magnifying glass on a desk in warm lamplight" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>

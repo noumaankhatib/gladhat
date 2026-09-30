@@ -69,17 +69,17 @@ export const ESSENCE_INVESTIGATION = [
 ];
 
 export const ESSENCE_VIDEO = assetUrl('/videos/essence-section.mp4');
-export const ESSENCE_VIDEO_POSTER = assetUrl('/images/essence/essence-final-composition.jpg');
+export const ESSENCE_VIDEO_POSTER = assetUrl('/images/essence/essence-final-composition.webp');
 
 export const ESSENCE_FINAL_IMAGE = ESSENCE_VIDEO_POSTER;
 export const ESSENCE_FINAL_ALT =
   'Layered stone and glass slabs separated to reveal a warm orange core — the essence of the business';
 
 export const ESSENCE_LAYER_ASSETS = {
-  top: assetUrl('/images/essence/essence-layer-familiarity.png'),
-  bottom: assetUrl('/images/essence/essence-layer-complexity.png'),
-  glass: assetUrl('/images/essence/essence-layer-glass.png'),
-  core: assetUrl('/images/essence/essence-core.png'),
+  top: assetUrl('/images/essence/essence-layer-familiarity.webp'),
+  bottom: assetUrl('/images/essence/essence-layer-complexity.webp'),
+  glass: assetUrl('/images/essence/essence-layer-glass.webp'),
+  core: assetUrl('/images/essence/essence-core.webp'),
 };
 
 export const ESSENCE_INTRO =

@@ -91,14 +91,15 @@ export async function TrueStoriesPage() {
             </ul>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/stories.png')}" alt="An old book lying open on a desk beside a candle" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/stories.webp')}" alt="An old book lying open on a desk beside a candle" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section work-portfolio" id="work-portfolio" aria-label="Case studies">
+    <section class="section work-portfolio" id="work-portfolio" aria-labelledby="work-portfolio-title">
       <div class="container">
+        <h2 class="sr-only" id="work-portfolio-title">Case studies</h2>
         <div class="work-filters" role="tablist" aria-label="Filter case studies">
           ${filterButtons}
         </div>

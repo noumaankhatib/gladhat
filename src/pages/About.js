@@ -39,7 +39,7 @@ export async function AboutPage() {
             <p class="highlight-text">I help businesses see themselves more clearly.</p>
           </div>
           <div class="split__image reveal reveal--delay-2 about-intro__figure">
-            <img src="${assetUrl('/images/silhouette.png')}" alt="Silhouette of a person looking thoughtfully out a window into golden light" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/silhouette.webp')}" alt="Silhouette of a person looking thoughtfully out a window into golden light" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>

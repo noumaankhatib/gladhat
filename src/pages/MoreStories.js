@@ -33,12 +33,12 @@ export async function MoreStoriesPage() {
   `).join('');
 
   const html = `
-    <section class="hero" id="more-hero" style="min-height: 50vh;">
+    <section class="hero page-hero" id="more-hero">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">
           <span class="hero__label">True Stories</span>
-          <h1 class="hero__title">More <span class="accent">Stories</span></h1>
+          <h1 class="hero__title">More <span class="accent">stories</span></h1>
           <p class="hero__subtitle">
             Not every project becomes a full story. Sometimes the lesson is smaller. Sometimes the work speaks for itself.
           </p>
@@ -46,16 +46,11 @@ export async function MoreStoriesPage() {
       </div>
     </section>
 
-    <section class="section" id="more-intro">
-      <div class="container">
-        <div class="prose reveal">
-          <p>Here are a few other businesses I've had the pleasure of working with over the years.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="section section--alt" id="more-grid">
       <div class="container">
+        <div class="section-header section-header--left reveal">
+          <h2 class="section-header__title">Other businesses I've had the pleasure of <span class="accent">working with</span></h2>
+        </div>
         <div class="grid grid--3">
           ${cards}
         </div>
@@ -74,8 +69,7 @@ export async function MoreStoriesPage() {
 
   return applyCmsPage(await getPage('more-stories'), html, {
     id: 'more-hero',
-    minHeight: '50vh',
-    label: 'True Stories',
+        label: 'True Stories',
     titleHtml: 'More <span class="accent">Stories</span>',
     subtitle: 'Not every project becomes a full story. Sometimes the lesson is smaller. Sometimes the work speaks for itself.',
   });

@@ -68,10 +68,10 @@ export async function HomePage() {
   const f = page?.fields || {};
   const heroSub = slot(f.gladhat_home_hero_sub, "Most founders don't need more ideas.<br>\n            They need a different perspective.");
   const heroCta = slot(f.gladhat_home_hero_cta, 'See how I think');
-  const heroVisual = imageUrl(f.gladhat_home_hero_image, assetUrl('/images/hero-portal-perspective.jpg'));
-  const scrolly1 = imageUrl(f.gladhat_home_q1_image, assetUrl('/images/epic_founders.png'));
-  const scrolly3 = imageUrl(f.gladhat_home_bento1_image, assetUrl('/images/epic_essence.png'));
-  const scrolly4 = imageUrl(f.gladhat_home_bento2_image, assetUrl('/images/epic_connecting.png'));
+  const heroVisual = imageUrl(f.gladhat_home_hero_image, assetUrl('/images/hero-portal-perspective.webp'));
+  const scrolly1 = imageUrl(f.gladhat_home_q1_image, assetUrl('/images/epic_founders.webp'));
+  const scrolly3 = imageUrl(f.gladhat_home_bento1_image, assetUrl('/images/epic_essence.webp'));
+  const scrolly4 = imageUrl(f.gladhat_home_bento2_image, assetUrl('/images/epic_connecting.webp'));
 
   const featuredWork = [
     {
@@ -265,7 +265,7 @@ export async function HomePage() {
               </header>
               <div class="essence-band__visual-col">
                 <div class="essence-band__hero-viewport">
-                  <video class="essence-band__hero-video" src="${ESSENCE_VIDEO}" poster="${ESSENCE_VIDEO_POSTER}" muted playsinline loop autoplay preload="auto"></video>
+                  <video class="essence-band__hero-video" src="${ESSENCE_VIDEO}" poster="${ESSENCE_VIDEO_POSTER}" muted playsinline loop preload="metadata"></video>
                 </div>
               </div>
             </div>
@@ -439,7 +439,7 @@ export async function HomePage() {
             </header>
             <div class="true-stories-band__visual-col">
               <div class="true-stories-visual">
-                <video class="true-stories-video" src="${TRUE_STORIES_VIDEO}" muted playsinline loop autoplay preload="metadata" aria-hidden="true"></video>
+                <video class="true-stories-video" src="${TRUE_STORIES_VIDEO}" muted playsinline loop preload="metadata" aria-hidden="true"></video>
               </div>
               <p class="sr-only">${TRUE_STORIES_VIDEO_ALT}</p>
             </div>
@@ -486,7 +486,7 @@ export async function HomePage() {
           <div class="thinking-difference__installation">
             <img
               class="thinking-difference__scene"
-              src="${assetUrl('/images/09_section.png')}"
+              src="${assetUrl('/images/09_section.webp')}"
               alt="An architectural installation of glass and stone frames converging toward a single clear opening onto a sunlit landscape, labelled What you notice, What you question, What you prioritise, What you decide, What you create — representing the journey from noticing to creating."
               loading="lazy"
               width="1680"
@@ -516,7 +516,7 @@ export async function HomePage() {
           <figure class="approach-spotlight__visual-frame">
             <img
               class="approach-spotlight__visual-image"
-              src="${assetUrl('/images/10_section.png')}"
+              src="${assetUrl('/images/10_section.webp')}"
               alt="Five sculptural objects on a stone shelf, each representing a stage of the approach: listening, looking, challenging, connecting and creating."
               loading="lazy"
               width="1680"

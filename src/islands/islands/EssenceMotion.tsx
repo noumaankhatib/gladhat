@@ -72,8 +72,7 @@ function HeroVisual({
           muted
           playsInline
           loop
-          autoPlay
-          preload="auto"
+          preload="metadata"
         />
       </div>
     </div>

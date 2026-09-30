@@ -23,7 +23,7 @@ export function ConversationSpotlight() {
     >
       <div class="conversation-cta__bg-media" aria-hidden="true">
         <img
-          src="${assetUrl('/images/11_section.png')}"
+          src="${assetUrl('/images/11_section.webp')}"
           alt=""
           loading="lazy"
           width="1680"

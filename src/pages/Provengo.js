@@ -4,10 +4,11 @@
 
 import { getStory } from '../services/content-service.js';
 import { applyCmsStory } from '../utils/page-compose.js';
+import { storyGlance, storyNext } from '../utils/story-extras.js';
 
 export async function ProvengoPage() {
   const html = `
-    <section class="hero" id="pv-hero" style="min-height: 55vh;">
+    <section class="hero page-hero story-hero" id="pv-hero">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">
@@ -20,9 +21,11 @@ export async function ProvengoPage() {
       </div>
     </section>
 
+    ${storyGlance('provengo')}
+
     <section class="section" id="pv-opening">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <p>Instead of forcing engineers to describe exactly what a system should do, Provengo allowed companies to specify what they did not want, dramatically simplifying the design of complex systems.</p>
           <p>It sounds simple. It is not. This was one of the most technically sophisticated products I had encountered.</p>
         </div>
@@ -31,7 +34,7 @@ export async function ProvengoPage() {
 
     <section class="section section--alt" id="pv-tech">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Brilliant technology isn't enough</h2>
           <p>The founders were computer science professors from Ben-Gurion University.</p>
           <p>Their expertise was extraordinary. They also knew something needed sharpening in the way they explained Provengo — the implications were so big for systems engineering, they needed to really get people's attention.</p>
@@ -45,7 +48,7 @@ export async function ProvengoPage() {
 
     <section class="section" id="pv-audience">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Looking through the audience's eyes</h2>
           <p>One advantage of not being a systems engineer is that I naturally asked some of the same questions an investor would ask.</p>
           <p>What does that actually mean?</p>
@@ -61,7 +64,7 @@ export async function ProvengoPage() {
 
     <section class="section section--alt" id="pv-essence">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Finding the essence</h2>
           <p>As the messaging became clearer, another piece fell into place.</p>
           <p>The tagline.</p>
@@ -77,7 +80,7 @@ export async function ProvengoPage() {
 
     <section class="section" id="pv-bridge">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>Building the bridge</h2>
           <p>Working on Provengo reminded me that my role isn't to try to become the technical expert.</p>
           <p>The founders already had that covered.</p>
@@ -94,18 +97,13 @@ export async function ProvengoPage() {
 
     <section class="section section--alt" id="pv-lessons">
       <div class="container">
-        <div class="prose reveal">
+        <div class="prose reveal story-prose">
           <h2>What this project taught me</h2>
           <p>It's easy to assume that the answer to a complicated product is a more detailed explanation.</p>
           <p>I've found the opposite is often true. People don't need to understand everything before their interest is sparked and they begin to care. They need to understand enough to recognise why something matters. Once that happens, curiosity takes over. The deeper conversations can come later.</p>
           <p class="highlight-text">This project reminded me that clarity isn't about making ideas smaller. It's about making them accessible.</p>
           <p>Sometimes the greatest value isn't explaining more. It's helping people take the first confident step towards understanding.</p>
-
-          <div style="margin-top: var(--space-3xl); display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: center;">
-            <a href="/contact" class="btn btn--primary" id="pv-cta">Let's Talk <span class="btn-arrow">→</span></a>
-            <a href="/more-stories" class="btn btn--outline" id="pv-next">More Stories <span class="btn-arrow">→</span></a>
-            <a href="/work" class="text-link" id="pv-back">← Back to True Stories</a>
-          </div>
+          ${storyNext('provengo')}
         </div>
       </div>
     </section>

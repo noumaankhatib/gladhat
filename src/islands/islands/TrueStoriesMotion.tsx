@@ -85,7 +85,6 @@ function StoryVisual({
         muted
         playsInline
         loop={!reduced}
-        autoPlay={!reduced}
         preload="metadata"
         aria-hidden="true"
       />

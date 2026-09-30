@@ -24,7 +24,7 @@ export async function WorkingTogetherPage() {
       num: '01',
       label: 'Listening',
       title: 'Listening comes first',
-      image: '/images/essence.png',
+      image: '/images/essence.webp',
       alt: 'A brass compass resting on dark slate',
       body: `
         <p>Every engagement starts the same way: not with a brief, but with a conversation.</p>
@@ -36,7 +36,7 @@ export async function WorkingTogetherPage() {
       num: '02',
       label: 'Looking',
       title: 'Looking at the business together',
-      image: '/images/perspective_prism.png',
+      image: '/images/perspective_prism.webp',
       alt: 'A crystal prism splitting a beam of light',
       body: `
         <p>Once I understand the landscape, the questions start to change.</p>
@@ -48,7 +48,7 @@ export async function WorkingTogetherPage() {
       num: '03',
       label: 'Challenging',
       title: 'Challenging ideas, not people',
-      image: '/images/conversation.png',
+      image: '/images/conversation.webp',
       alt: 'Two leather armchairs facing each other in a quiet library',
       body: `
         <p>Founders carry a huge amount of knowledge, experience and instinct. None of that gets replaced.</p>
@@ -59,7 +59,7 @@ export async function WorkingTogetherPage() {
       num: '04',
       label: 'Connecting',
       title: 'Connecting the dots',
-      image: '/images/connecting.png',
+      image: '/images/connecting.webp',
       alt: 'Gold threads connecting points across a dark surface',
       body: `
         <p>This is where the thinking starts turning into something usable.</p>
@@ -93,7 +93,7 @@ export async function WorkingTogetherPage() {
             <p class="highlight-text">The more I understand your business, the more likely we are to discover something valuable together.</p>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/research.png')}" alt="A desk covered in notes, maps and an open notebook under a lamp" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/research.webp')}" alt="A desk covered in notes, maps and an open notebook under a lamp" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@ export async function WorkingTogetherPage() {
             </div>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/whatif.png')}" alt="A ring of light drawn in the air inside a dark room" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/whatif.webp')}" alt="A ring of light drawn in the air inside a dark room" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>

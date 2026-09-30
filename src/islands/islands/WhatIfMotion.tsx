@@ -26,7 +26,7 @@ export function WhatIfMotion({ node }: IslandProps) {
   const reduced = useReducedMotion();
   const props = parseIslandProps<WhatIfProps>(node);
   const title = props.title || node.dataset.whatifTitle || 'What if...';
-  const image = props.image || node.dataset.whatifImage || assetUrl('/images/whatif.png');
+  const image = props.image || node.dataset.whatifImage || assetUrl('/images/whatif.webp');
   const imageAlt =
     props.imageAlt ||
     node.dataset.whatifImageAlt ||

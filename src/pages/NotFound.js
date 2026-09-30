@@ -23,7 +23,7 @@ export function NotFoundPage() {
             </nav>
           </div>
           <figure class="error-page__visual">
-            <img src="${assetUrl('/images/prism.png')}" alt="" loading="lazy" width="1000" height="1000">
+            <img src="${assetUrl('/images/prism.webp')}" alt="" loading="lazy" width="1000" height="1000">
           </figure>
         </div>
       </div>

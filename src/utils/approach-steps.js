@@ -14,7 +14,7 @@ export const APPROACH_STEPS = [
     title: 'Listening comes first',
     text: 'Understand the real opportunity.',
     quote: 'Only then do patterns begin to emerge.',
-    image: assetUrl('/images/epic_essence.png'),
+    image: assetUrl('/images/epic_essence.webp'),
     imageAlt: 'Listening and understanding your business',
     details: `
       <p>The best work begins with curiosity — listening, research, questions. Understanding your customers, your market, and how you see your business.</p>
@@ -26,7 +26,7 @@ export const APPROACH_STEPS = [
     title: 'Looking together',
     text: 'See beyond the obvious.',
     quote: 'What have you stopped noticing?',
-    image: assetUrl('/images/perspective_prism.png'),
+    image: assetUrl('/images/perspective_prism.webp'),
     imageAlt: 'Looking at the business from a different angle',
     details: `
       <p>Once I understand the landscape, I start asking different questions — what assumptions are shaping your decisions, what your customers value most, what's getting in the way, and where the opportunities are hiding in plain sight.</p>
@@ -39,7 +39,7 @@ export const APPROACH_STEPS = [
     title: 'Challenging ideas',
     text: 'Shape a clearer direction.',
     quote: 'Better questions often lead to better decisions.',
-    image: assetUrl('/images/conversation.png'),
+    image: assetUrl('/images/conversation.webp'),
     imageAlt: 'Challenging ideas respectfully',
     details: `
       <p>Founders carry a huge amount of knowledge, experience and instinct. They've earned it. My role isn't to replace that — it's to challenge assumptions respectfully, and ask the questions that are difficult to ask when you're living inside the business every day.</p>
@@ -51,7 +51,7 @@ export const APPROACH_STEPS = [
     title: 'Connecting the dots',
     text: 'Turn thinking into meaningful impact.',
     quote: 'The deliverable is never the starting point. The thinking is.',
-    image: assetUrl('/images/epic_connecting.png'),
+    image: assetUrl('/images/epic_connecting.webp'),
     imageAlt: 'Connecting ideas into practical action',
     details: `
       <p>I connect customer psychology with commercial objectives. Positioning with communications. Creative ideas with practical action.</p>
@@ -73,5 +73,5 @@ export const APPROACH_STEPS = [
   },
 ];
 
-export const APPROACH_DEFAULT_IMAGE = assetUrl('/images/research.png');
+export const APPROACH_DEFAULT_IMAGE = assetUrl('/images/research.webp');
 export const APPROACH_DEFAULT_IMAGE_ALT = 'A clearer perspective on your business';

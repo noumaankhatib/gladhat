@@ -10,6 +10,7 @@ export async function SeeDifferentlyPage() {
   const exercises = [
     {
       num: '01',
+      short: 'What customers would say',
       question: 'What would your best customers say you do better than anyone else?',
       body: `
         <p>Not what you believe. Not what your website says.</p>
@@ -19,6 +20,7 @@ export async function SeeDifferentlyPage() {
     },
     {
       num: '02',
+      short: 'Your first day',
       question: 'Imagine today is your first day in the business.',
       body: `
         <p>You know nothing. You've just arrived.</p>
@@ -28,6 +30,7 @@ export async function SeeDifferentlyPage() {
     },
     {
       num: '03',
+      short: 'If you disappeared',
       question: 'If your business disappeared tomorrow…',
       body: `
         <p>What would your customers genuinely miss?</p>
@@ -36,6 +39,7 @@ export async function SeeDifferentlyPage() {
     },
     {
       num: '04',
+      short: 'One thing to say',
       question: 'If you could communicate only one thing…',
       body: `
         <p>Imagine you could leave every visitor with just one clear understanding of your business.</p>
@@ -45,6 +49,7 @@ export async function SeeDifferentlyPage() {
     },
     {
       num: '05',
+      short: 'Unquestioned assumptions',
       question: 'What assumptions have you stopped questioning?',
       body: `
         <p>Every business develops habits.</p>
@@ -54,6 +59,7 @@ export async function SeeDifferentlyPage() {
     },
     {
       num: '06',
+      short: 'The hidden opportunity',
       question: 'Where might the biggest opportunity be hiding?',
       body: `
         <p>Not the opportunity you're already pursuing. The one you haven't considered.</p>
@@ -97,23 +103,51 @@ export async function SeeDifferentlyPage() {
       </div>
     </section>
 
-    <section class="section section--alt" id="see-questions">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-header__label">The exercises</span>
-          <h2 class="section-header__title">Six <span class="accent">questions</span></h2>
-        </div>
+    <section class="section section--alt workbook" id="see-questions" data-workbook>
+      <div class="container workbook__grid">
+        <aside class="workbook__rail">
+          <div class="workbook__rail-inner">
+            <span class="section-header__label">The exercises</span>
+            <h2 class="workbook__title">Six <span class="accent">questions</span></h2>
+            <p class="workbook__intro">Work through them in order, or jump to the one that pulls at you.</p>
 
-        <ol class="exercises">
+            <div class="workbook__progress" aria-hidden="true">
+              <span class="workbook__progress-count"><span data-workbook-current>01</span> / 06</span>
+              <span class="workbook__progress-track"><span class="workbook__progress-fill" data-workbook-fill></span></span>
+            </div>
+
+            <nav aria-label="Jump to an exercise">
+              <ol class="workbook__index">
+                ${exercises.map((ex, i) => `
+                <li>
+                  <a href="#exercise-${ex.num}" class="workbook__index-link${i === 0 ? ' is-active' : ''}" data-workbook-link="${ex.num}">
+                    <span class="workbook__index-num">${ex.num}</span>
+                    <span class="workbook__index-label">${ex.short}</span>
+                  </a>
+                </li>`).join('')}
+              </ol>
+            </nav>
+          </div>
+        </aside>
+
+        <ol class="workbook__pages">
           ${exercises.map((ex) => `
-          <li class="exercise reveal" id="exercise-${ex.num}">
-            <p class="exercise__num" aria-hidden="true">${ex.num}</p>
-            <div class="exercise__body prose">
-              <h3 class="exercise__question">${ex.question}</h3>
+          <li class="workbook-page reveal" id="exercise-${ex.num}" data-workbook-page="${ex.num}">
+            <header class="workbook-page__head">
+              <span class="workbook-page__num" aria-hidden="true">${ex.num}</span>
+              <span class="workbook-page__of">Exercise ${Number(ex.num)} of 6</span>
+            </header>
+            <div class="workbook-page__body prose">
+              <h3 class="workbook-page__question">${ex.question}</h3>
               ${ex.body}
-              <p class="exercise__prompt">${ex.prompt}</p>
+              <p class="workbook-page__prompt">${ex.prompt}</p>
               ${ex.after || ''}
-              <div class="exercise__lines" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+            <div class="workbook-page__notes" aria-hidden="true">
+              <span class="workbook-page__notes-label">Your notes</span>
+              <span class="workbook-page__line"></span>
+              <span class="workbook-page__line"></span>
+              <span class="workbook-page__line"></span>
             </div>
           </li>`).join('')}
         </ol>
@@ -140,7 +174,7 @@ export async function SeeDifferentlyPage() {
             </div>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/prism.png')}" alt="A glass prism refracting a beam of light" loading="lazy" width="1024" height="1024">
+            <img src="${assetUrl('/images/prism.webp')}" alt="A glass prism refracting a beam of light" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
