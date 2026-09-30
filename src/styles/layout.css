@@ -285,6 +285,7 @@
 /* ── Responsive ────────────────────────────── */
 
 @media (max-width: 960px) {
+  .site-header .container,
   .header-bar {
     grid-template-columns: 1fr auto;
   }

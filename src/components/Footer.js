@@ -11,7 +11,18 @@ export function Footer(currentPath = '/') {
   const linkedin = slot(site?.linkedin, 'https://linkedin.com');
   const email = slot(site?.email, 'm@gladhat.com');
   const year = 2026;
-  const isHome = currentPath === '/';
+  // Pages that already close with their own call to action — the
+  // generic footer CTA would stack a second, competing one under it.
+  const hasOwnCta = [
+    '/',
+    '/when-we-should-talk',
+    '/working-together',
+    '/work',
+    '/see-your-business-differently',
+    '/about',
+    '/theblog',
+    '/contact',
+  ].includes(currentPath.replace(/\/+$/, '') || '/');
 
   const exploreLinks = NAV_ITEMS.map((item) => `
     <a href="${item.path}" class="footer-links__link">${item.label}</a>
@@ -19,7 +30,7 @@ export function Footer(currentPath = '/') {
 
   return `
     <footer class="site-footer" id="site-footer" role="contentinfo">
-      ${isHome ? '' : `
+      ${hasOwnCta ? '' : `
       <div class="footer-cta">
         <div class="container footer-cta__content">
           <p class="footer-cta__title">Ready to see your business from another angle?</p>

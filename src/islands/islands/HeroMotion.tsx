@@ -35,9 +35,12 @@ export function HeroMotion({ node }: IslandProps) {
           ))}
         </Enter>
         <Enter as="div" className="hero__actions" delay={0.55}>
-          <MagneticButton href="/contact" className="btn btn--primary btn--lg btn--pill hero__cta">
+          <MagneticButton href="/working-together" className="btn btn--primary btn--lg btn--pill hero__cta">
             {heroCta} <span className="btn-arrow">→</span>
           </MagneticButton>
+          <a href="/contact" className="text-link hero__secondary">
+            Start a conversation <span aria-hidden="true">→</span>
+          </a>
         </Enter>
       </div>
     </>

@@ -13,9 +13,9 @@ export function unwrapHtml(html) {
     .trim();
 }
 
-export function renderHero({ id, minHeight = '55vh', label, titleHtml, subtitle }) {
+export function renderHero({ id, label, titleHtml, subtitle }) {
   return `
-    <section class="hero" id="${id}" style="min-height: ${minHeight};">
+    <section class="hero page-hero" id="${id}">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">

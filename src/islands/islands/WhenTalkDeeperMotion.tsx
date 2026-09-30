@@ -9,11 +9,13 @@ export function WhenTalkDeeperMotion(_props: IslandProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.8', 'end 0.3'],
+    offset: ['start 0.9', 'center 0.55'],
   });
-  const backOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const backOpacity = useTransform(scrollYProgress, [0, 1], [0.15, 1]);
   const backY = useTransform(scrollYProgress, [0, 1], [24, 0]);
-  const frontShift = useTransform(scrollYProgress, [0, 1], [0, -16]);
+  // Front column only drifts on the way in so both columns end level
+
+  const frontShift = useTransform(scrollYProgress, [0, 1], [-16, 0]);
 
   return (
     <div className="container when-talk-deeper__inner">
@@ -33,28 +35,32 @@ export function WhenTalkDeeperMotion(_props: IslandProps) {
         </Reveal>
       </header>
 
-      <div className="when-talk-layers" ref={ref}>
-        <div className="when-talk-layers__back" aria-hidden={false}>
-          {DEEPER_BACK_LAYERS.map((label, index) => (
-            <m.div
-              key={label}
-              className="when-talk-layers__row when-talk-layers__row--back"
-              style={
-                reduced
-                  ? undefined
-                  : { opacity: backOpacity, y: backY, transitionDelay: `${index * 0.05}s` }
-              }
-            >
-              {label}
-            </m.div>
-          ))}
-        </div>
+      {/* Surface symptoms on the left, what usually sits underneath on the
+          right — the right column resolves in as the section scrolls. */}
+      <div className="when-talk-layers when-talk-layers--split" ref={ref}>
         <m.div
           className="when-talk-layers__front"
           style={reduced ? undefined : { y: frontShift }}
         >
+          <p className="when-talk-layers__heading">What you see</p>
           {DEEPER_FRONT_LAYERS.map((label) => (
             <div key={label} className="when-talk-layers__row when-talk-layers__row--front">
+              {label}
+            </div>
+          ))}
+        </m.div>
+        <div className="when-talk-layers__bridge" aria-hidden="true">
+          {DEEPER_FRONT_LAYERS.map((label) => (
+            <span key={label}>→</span>
+          ))}
+        </div>
+        <m.div
+          className="when-talk-layers__back"
+          style={reduced ? undefined : { opacity: backOpacity, y: backY }}
+        >
+          <p className="when-talk-layers__heading when-talk-layers__heading--accent">What's often underneath</p>
+          {DEEPER_BACK_LAYERS.map((label) => (
+            <div key={label} className="when-talk-layers__row when-talk-layers__row--back">
               {label}
             </div>
           ))}

@@ -1,0 +1,623 @@
+/* ===================================================
+   GLADHAT — Homepage story pass
+   Loaded last. Reads the homepage as one journey:
+   intrigue → discover → understand → connect → trust → act.
+   Scoped to homepage section classes only.
+   =================================================== */
+
+:root {
+  --story-cream: #F4EDE2;
+  --story-cream-soft: #FAF5EC;
+  --story-section-pad: clamp(4.5rem, 9vw, 8rem);
+}
+
+/* ── Shared: handwritten-style annotation ─────── */
+
+.story-note {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.1vw, 1.125rem);
+  line-height: 1.3;
+  color: var(--color-ink);
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+.story-note svg {
+  flex-shrink: 0;
+  color: var(--color-signal);
+  margin-bottom: -0.9rem;
+}
+
+/* ── 01 · Hero — light editorial split ─────────── */
+
+.hero--editorial.hero--story {
+  position: relative;
+  /* <main> already offsets the fixed header */
+  min-height: calc(100svh - var(--header-height));
+  padding: clamp(1rem, 3vh, 2.5rem) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background:
+    radial-gradient(ellipse 55% 60% at 78% 38%, rgba(255, 170, 90, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 6% 90%, rgba(49, 85, 255, 0.05) 0%, transparent 70%),
+    var(--color-paper);
+  overflow: hidden;
+}
+
+.hero-story {
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-wide, 1280px);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2rem) clamp(2rem, 5vh, 3.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.hero--story .hero__layout {
+  position: relative;
+  z-index: 2;
+}
+
+.hero--story .hero__content {
+  max-width: 34rem;
+  text-align: left;
+}
+
+.hero--story .hero__section-label {
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+
+.hero--story .hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5.6vw, 5.75rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  max-width: 9ch;
+  margin: 0 0 clamp(1.25rem, 3vh, 1.85rem);
+  padding-bottom: 0.06em;
+  color: var(--color-ink);
+}
+
+.hero--story .hero__title .accent {
+  color: var(--color-signal);
+  font-style: italic;
+}
+
+.hero--story .hero__subtitle {
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 32ch;
+  margin: 0;
+}
+
+.hero--story .hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin-top: clamp(1.75rem, 4vh, 2.5rem);
+}
+
+.hero--story .hero__cta {
+  min-height: 3.25rem;
+  padding: 1rem 1.9rem;
+  font-weight: 600;
+  box-shadow: 0 14px 34px -14px rgba(255, 122, 0, 0.55);
+}
+
+.hero__secondary {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.hero__secondary span[aria-hidden='true'] {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.hero__secondary:hover span[aria-hidden='true'] {
+  transform: translateX(4px);
+}
+
+.hero-story__visual {
+  position: relative;
+  margin: 0;
+  justify-self: end;
+  width: 100%;
+  max-width: 40rem;
+}
+
+/* Soft sun glow behind the arch */
+.hero-story__visual::before {
+  content: '';
+  position: absolute;
+  inset: 12% -8% -4% 10%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 140, 40, 0.22) 0%, transparent 65%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.hero-story__arch {
+  position: relative;
+  z-index: 1;
+  height: min(calc(100svh - var(--header-height) - 11rem), 40rem);
+  min-height: 22rem;
+  border-radius: 12rem 1.75rem 1.75rem 1.75rem;
+  overflow: hidden;
+  background: var(--story-cream);
+  box-shadow:
+    0 40px 80px -40px rgba(23, 33, 59, 0.35),
+    0 0 0 1px rgba(23, 33, 59, 0.05);
+}
+
+.hero-story__arch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  display: block;
+}
+
+/* Held slightly zoomed from the right so the photo's baked-in
+   caption fragment at its far-left edge never shows. */
+.hero-story__arch img {
+  transform: scale(1.06);
+  transform-origin: 78% 55%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-story__arch img {
+    animation: story-drift 22s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes story-drift {
+  from { transform: scale(1.14); }
+  to   { transform: scale(1.06); }
+}
+
+.hero-story__note {
+  top: -0.5rem;
+  left: -7.5rem;
+}
+
+/* Client marquee — quiet proof under the hero, on paper */
+.hero--story .hero__marquee.marquee-container {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  align-items: center;
+  padding: clamp(1rem, 2.4vh, 1.4rem) 0;
+  background: rgba(255, 253, 248, 0.7);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero--story .hero__marquee.marquee-container::before {
+  width: calc(max(clamp(1.25rem, 4vw, 2rem), (100vw - 1280px) / 2 + 2rem) + 17rem);
+  background: linear-gradient(to right, var(--color-paper) 72%, transparent 100%);
+}
+
+.hero--story .hero__marquee.marquee-container::after {
+  background: linear-gradient(to left, var(--color-paper) 0%, transparent 100%);
+}
+
+.hero__marquee-label {
+  position: absolute;
+  left: max(clamp(1.25rem, 4vw, 2rem), calc((100vw - var(--container-wide, 1280px)) / 2 + 2rem));
+  top: 50%;
+  z-index: 3;
+  margin: 0;
+  transform: translateY(-50%);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+}
+
+.hero--story .hero__marquee .marquee-brand,
+.hero--story .hero__marquee .marquee-text {
+  color: var(--color-ink);
+  opacity: 0.62;
+}
+
+.hero--story .hero__marquee .marquee-brand:hover .marquee-text {
+  opacity: 1;
+  color: var(--color-signal);
+}
+
+.hero--story .hero__marquee .marquee-separator {
+  color: var(--color-signal);
+  opacity: 0.6;
+}
+
+/* ── Section rhythm — alternate paper / cream so the
+      page breathes instead of reading as one long sheet ── */
+
+.section-perspective { background: var(--story-cream); }
+.section-beyond { background: var(--color-paper); padding-block: var(--story-section-pad) clamp(3.5rem, 7vw, 6rem); }
+.section-essence { background: var(--story-cream-soft); padding-block: var(--story-section-pad); }
+.section-curiosity-first { background: var(--color-paper); padding-block: var(--story-section-pad) clamp(2.5rem, 5vw, 4rem); }
+.section-creating-matters { background: var(--color-paper); }
+.section-thinking-difference { background: var(--story-cream-soft); }
+.section-approach-spotlight { background: var(--color-paper); }
+
+/* ── 04 · Essence — mirror the layout: image leads ── */
+
+@media (min-width: 961px) {
+  .essence-band__hero-grid {
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 0.4fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .essence-band__visual-col {
+    order: -1;
+  }
+}
+
+.essence-band__visual-col {
+  align-self: center;
+}
+
+.essence-band__hero-viewport {
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  background: transparent;
+  box-shadow: 0 40px 80px -48px rgba(23, 33, 59, 0.35);
+}
+
+.essence-band__hero-video {
+  object-fit: cover;
+  background: transparent;
+}
+
+.essence-band__aside {
+  max-width: 24ch;
+  margin-top: clamp(0.5rem, 2vh, 1.25rem);
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-signal);
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-transform: none;
+  color: var(--color-ink);
+}
+
+/* ── 06 · Curiosity — mirror: image leads, copy answers ── */
+
+@media (min-width: 961px) {
+  .curiosity-first-band__grid {
+    grid-template-columns: minmax(0, 0.55fr) minmax(0, 0.45fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .curiosity-first-band__visual-wrap {
+    order: -1;
+  }
+}
+
+/* ── 08 · True Stories — case cards now render (moved
+      outside the island so hydration no longer drops them) ── */
+
+.true-stories-band__root--work {
+  position: relative;
+  z-index: 2;
+}
+
+.true-stories-band__root--work .true-stories-band__work {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.true-stories-band__work .work-card__media {
+  margin: 0 0 1rem;
+  aspect-ratio: 3 / 2;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.true-stories-band__work .work-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.true-stories-band__work .work-card:hover .work-card__media img {
+  transform: scale(1.04);
+}
+
+/* ── 09 · Thinking that makes a difference ──
+      Title had room for ~1 word per line; give copy real width */
+
+@media (min-width: 961px) {
+  .thinking-difference__grid {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .thinking-difference__title {
+    max-width: 13ch;
+  }
+}
+
+.thinking-difference__lead {
+  max-width: 40ch;
+}
+
+.thinking-difference__installation {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -48px rgba(23, 33, 59, 0.4);
+}
+
+/* ── 10 · Approach — compact header, full-width steps ── */
+
+.approach-spotlight__title {
+  font-size: clamp(2.1rem, 3.6vw, 3.25rem);
+  max-width: 20ch;
+}
+
+.approach-spotlight__intro {
+  max-width: 44rem;
+}
+
+.approach-spotlight__lead {
+  max-width: 52ch;
+}
+
+.approach-spotlight__visual-frame {
+  border-radius: 1rem;
+}
+
+.approach-spotlight__body {
+  max-width: none;
+}
+
+@media (min-width: 961px) {
+  .approach-spotlight__beat-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+    padding-left: calc(2.5rem + clamp(var(--space-md), 2vw, var(--space-lg)));
+    padding-bottom: 1.5rem;
+  }
+
+  .approach-spotlight__beat-copy > * {
+    margin-top: 0;
+  }
+
+  .approach-spotlight__beat-quote {
+    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+    line-height: 1.25;
+  }
+}
+
+/* ── Tablet ──────────────────────────────────── */
+
+@media (max-width: 960px) {
+  .hero-story {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vw, 3rem);
+    padding-top: clamp(0.5rem, 2vh, 1.5rem);
+  }
+
+  .hero--story .hero__content {
+    max-width: 36rem;
+  }
+
+  .hero-story__visual {
+    justify-self: stretch;
+    max-width: none;
+  }
+
+  .hero-story__arch {
+    height: clamp(20rem, 62vw, 32rem);
+    min-height: 0;
+    border-radius: 8rem 1.25rem 1.25rem 1.25rem;
+  }
+
+  .hero-story__note {
+    top: auto;
+    bottom: 1.5rem;
+    left: 1.25rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 0.6rem;
+    background: rgba(255, 253, 248, 0.88);
+    transform: rotate(-3deg);
+  }
+
+  .hero-story__note svg {
+    display: none;
+  }
+
+  .hero__marquee-label {
+    display: none;
+  }
+
+  .essence-band__aside {
+    max-width: none;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .hero--editorial.hero--story {
+    min-height: 0;
+  }
+
+  .hero--story .hero__title {
+    font-size: clamp(2.75rem, 13vw, 3.75rem);
+  }
+
+  .hero-story__arch {
+    height: clamp(18rem, 92vw, 26rem);
+  }
+
+  .hero--story .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero--story .hero__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Shared edge alignment ───────────────────────
+      Sections 09–11 used the 1200px .container while
+      02–08 use a 1280px root; align every left edge. */
+
+.section-thinking-difference > .container,
+.section-approach-spotlight > .container,
+.section-start-conversation .container {
+  max-width: var(--container-wide, 1280px);
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* Case cards outside the featured-work section never get the
+   in-view class that lifts the media cover, so skip the cover. */
+.true-stories-band__work .work-card__media::after {
+  display: none;
+}
+
+/* ── 05 · Connecting — outcomes become a vertical index
+      beside the image (breaks the 3× horizontal-tab pattern) ── */
+
+@media (min-width: 1101px) {
+  .connecting-band__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.26fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: center;
+  }
+
+  .connecting-band__hero-grid {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+  }
+
+  .connecting-band__outcomes-panel {
+    margin-top: 0;
+    padding: 0.5rem;
+  }
+
+  .connecting-band__outcomes {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .connecting-band__outcome-btn {
+    padding: 0.95rem 1rem;
+  }
+}
+
+/* Approach visual — panoramic crop keeps the five labelled
+   objects but stops the image dominating a full viewport. */
+.approach-spotlight__visual-image {
+  aspect-ratio: 2.3 / 1;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+@media (max-width: 640px) {
+  .approach-spotlight__visual-image {
+    aspect-ratio: auto;
+  }
+}
+
+/* ── Small-screen consistency ────────────────── */
+
+@media (max-width: 1024px) {
+  .hero--story .hero__actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  /* 02 was the only section that centred on tablet/mobile */
+  .perspective-band__shell {
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .perspective-band__copy {
+    align-items: flex-start;
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero--story .hero__marquee.marquee-container::before,
+  .hero--story .hero__marquee.marquee-container::after {
+    width: clamp(40px, 10vw, 96px);
+    background: linear-gradient(to right, var(--color-paper) 0%, transparent 100%);
+  }
+
+  .hero--story .hero__marquee.marquee-container::after {
+    background: linear-gradient(to left, var(--color-paper) 0%, transparent 100%);
+  }
+}
+
+/* Case cards: swipeable row instead of a ~1000px stack */
+@media (max-width: 860px) {
+  .true-stories-band__work-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: min(78%, 22rem);
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: clamp(1.25rem, 4vw, 2rem);
+    margin-inline: calc(-1 * clamp(1.25rem, 4vw, 2rem));
+    padding: 0 clamp(1.25rem, 4vw, 2rem) 0.75rem;
+    scrollbar-width: none;
+  }
+
+  .true-stories-band__work-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .true-stories-band__work-grid > .work-card {
+    scroll-snap-align: start;
+  }
+
+  .true-stories-band__work-header {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero--story .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

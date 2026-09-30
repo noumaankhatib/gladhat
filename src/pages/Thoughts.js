@@ -109,14 +109,16 @@ export async function ThoughtsPage() {
           <span class="section-header__label">Start here</span>
           <h2 class="section-header__title">Real thinking, <span class="accent">right now</span></h2>
         </div>
-        <div class="split reveal" style="align-items: center;">
-          <div class="split__text prose" style="max-width: none;">
+        <div class="split reveal">
+          <div class="split__text prose">
             <p class="highlight-text">Long-form articles are still taking shape. In the meantime, here's something real you can use today.</p>
             <p>Six reflective exercises to help you step outside your business for a few minutes and see it through fresh eyes.</p>
-            <a href="/see-your-business-differently" class="btn btn--primary" id="thoughts-see-differently-cta">Try the exercises <span class="btn-arrow">→</span></a>
+            <div class="page-actions">
+              <a href="/see-your-business-differently" class="btn btn--primary btn--pill" id="thoughts-see-differently-cta">Try the exercises <span class="btn-arrow">→</span></a>
+            </div>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/prism.png')}" alt="Prism refracting light" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
+            <img src="${assetUrl('/images/prism.png')}" alt="A glass prism refracting a beam of light" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
@@ -124,30 +126,30 @@ export async function ThoughtsPage() {
 
     <section class="section" id="thoughts-themes">
       <div class="container">
-        <div class="section-header reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="section-header reveal">
           <span class="section-header__label">Taking shape</span>
           <h2 class="section-header__title">Themes I'm <span class="accent">exploring</span></h2>
           <p class="section-header__text">Not yet full articles — but questions I keep returning to in client conversations.</p>
         </div>
-        <ul style="max-width: 60ch; margin: 0 auto; list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-lg);">
+        <ol class="theme-grid">
           ${EXPLORING_THEMES.map((t, i) => `
-            <li class="reveal reveal--delay-${(i % 4) + 1}">
-              <span class="section-header__label" style="display: block; margin-bottom: var(--space-xs);">${t.tag}</span>
-              <strong style="font-family: var(--font-heading); font-size: var(--fs-lg); color: var(--color-heading); display: block; margin-bottom: var(--space-xs);">${t.title}</strong>
-              <span style="color: var(--color-text-muted);">${t.excerpt}</span>
+            <li class="theme-card reveal reveal--delay-${(i % 3) + 1}">
+              <span class="theme-card__meta"><span class="theme-card__num">${String(i + 1).padStart(2, '0')}</span> ${t.tag}</span>
+              <h3 class="theme-card__title">${t.title}</h3>
+              <p class="theme-card__text">${t.excerpt}</p>
             </li>
           `).join('')}
-        </ul>
+        </ol>
       </div>
     </section>
   `;
 
   const html = `
-    <section class="hero" id="thoughts-hero" style="min-height: 55vh;">
+    <section class="hero page-hero" id="thoughts-hero">
       <div class="hero__bg"></div>
       <div class="container">
         <div class="hero__content">
-          <span class="hero__label">Gladhat</span>
+          <span class="hero__label">Notes &amp; themes</span>
           <h1 class="hero__title"><span class="accent">Thoughts</span></h1>
           <p class="hero__subtitle">
             Questions, patterns and observations that shape the way I think about business, communication and the people behind them.
@@ -156,17 +158,17 @@ export async function ThoughtsPage() {
       </div>
     </section>
 
-    <section class="section" id="thoughts-intro">
+    <section class="section page-intro" id="thoughts-intro">
       <div class="container">
-        <div class="split reveal" style="align-items: center;">
-          <div class="split__text prose" style="max-width: none;">
-            <p>Some ideas arrive during client conversations.</p>
+        <div class="split reveal">
+          <div class="split__text prose">
+            <p class="page-intro__lead">Some ideas arrive during client conversations.</p>
             <p>Others appear while walking, reading or quietly staring out of the window with a cup of coffee.</p>
             <p>This is where I explore the questions, patterns and observations that shape the way I think about business, communication and the people behind them.</p>
             <p class="highlight-text">If one of these articles starts a conversation or helps you see something a little differently, then it has done its job.</p>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/silhouette.png')}" alt="Silhouette" loading="lazy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-glow);">
+            <img src="${assetUrl('/images/curiosity.png')}" alt="An open notebook and a magnifying glass on a desk in warm lamplight" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
@@ -174,14 +176,14 @@ export async function ThoughtsPage() {
 
     ${thinkingSection}
 
-    <section class="section section--alt" id="thoughts-cta">
+    <section class="section section--alt page-cta" id="thoughts-cta">
       <div class="container">
-        <div class="prose reveal" style="text-align: center;">
-          <h2>Have a question worth exploring?</h2>
+        <div class="page-cta__inner reveal">
+          <h2 class="page-cta__title">Have a question worth <span class="accent">exploring?</span></h2>
           <p>Sometimes the best ideas start as a conversation, not an article.</p>
-          <div style="margin-top: var(--space-2xl); display: flex; flex-direction: column; align-items: center; gap: var(--space-md);">
-            <a href="/contact" class="btn btn--primary btn--lg" id="thoughts-cta-btn">
-              Let's Talk <span class="btn-arrow">→</span>
+          <div class="page-actions page-actions--center">
+            <a href="/contact" class="btn btn--primary btn--lg btn--pill" id="thoughts-cta-btn">
+              Let's talk <span class="btn-arrow">→</span>
             </a>
           </div>
         </div>
@@ -191,8 +193,7 @@ export async function ThoughtsPage() {
 
   return applyCmsPage(await getPage('theblog'), html, {
     id: 'thoughts-hero',
-    minHeight: '55vh',
-    label: 'Gladhat',
+    label: 'Notes &amp; themes',
     titleHtml: '<span class="accent">Thoughts</span>',
     subtitle: 'Questions, patterns and observations that shape the way I think about business, communication and the people behind them.',
   });

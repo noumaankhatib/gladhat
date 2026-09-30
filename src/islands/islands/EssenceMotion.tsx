@@ -1,17 +1,14 @@
 import type { RefObject } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { Enter } from '../../components/motion/Enter';
 import {
   ESSENCE_INTRO,
-  ESSENCE_INVESTIGATION,
   ESSENCE_LAYERS,
   ESSENCE_VIDEO,
   ESSENCE_VIDEO_POSTER,
 } from '../../utils/essence-content.js';
 import type { IslandProps } from '../types';
-
-const INVESTIGATION_AUTO_MS = 4500;
 
 function useEssenceVideoPlayback(
   containerRef: RefObject<HTMLDivElement | null>,
@@ -83,110 +80,6 @@ function HeroVisual({
   );
 }
 
-function InvestigationItem({
-  item,
-  active,
-  onSelect,
-}: {
-  item: (typeof ESSENCE_INVESTIGATION)[number];
-  active: boolean;
-  onSelect: () => void;
-}) {
-  return (
-    <li
-      className={`essence-band__investigation-item${active ? ' essence-band__investigation-item--active' : ''}`}
-    >
-      <button
-        type="button"
-        className="essence-band__investigation-btn"
-        onClick={onSelect}
-        onFocus={onSelect}
-        aria-current={active ? 'true' : undefined}
-      >
-        <span className="essence-band__investigation-body">
-          <span className="essence-band__investigation-num" aria-hidden="true">
-            {item.num}
-          </span>
-          <span className="essence-band__investigation-copy">
-            <span className="essence-band__investigation-text">{item.text}</span>
-            <span className="essence-band__investigation-detail">{item.detail}</span>
-          </span>
-        </span>
-        <span className="essence-band__investigation-icon-wrap">
-          <img
-            className="essence-band__investigation-icon"
-            src={item.icon}
-            alt={item.iconAlt}
-            loading="lazy"
-            width={64}
-            height={64}
-          />
-        </span>
-      </button>
-    </li>
-  );
-}
-
-function InvestigationRow({ reduced }: { reduced: boolean | null }) {
-  const rowRef = useRef<HTMLOListElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (reduced || paused) return;
-
-    const row = rowRef.current;
-    if (!row) return;
-
-    let intervalId: number | undefined;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          intervalId = window.setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % ESSENCE_INVESTIGATION.length);
-          }, INVESTIGATION_AUTO_MS);
-        } else if (intervalId !== undefined) {
-          window.clearInterval(intervalId);
-          intervalId = undefined;
-        }
-      },
-      { threshold: 0.3 },
-    );
-
-    observer.observe(row);
-    return () => {
-      observer.disconnect();
-      if (intervalId !== undefined) window.clearInterval(intervalId);
-    };
-  }, [reduced, paused]);
-
-  return (
-    <div className="essence-band__investigation-panel">
-      <ol
-        className={`essence-band__investigation${reduced ? ' essence-band__investigation--static' : ''}`}
-        ref={rowRef}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onFocus={() => setPaused(true)}
-        onBlur={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-            setPaused(false);
-          }
-        }}
-      >
-        {ESSENCE_INVESTIGATION.map((item, index) => (
-          <InvestigationItem
-            key={item.id}
-            item={item}
-            active={!reduced && index === activeIndex}
-            onSelect={() => setActiveIndex(index)}
-          />
-        ))}
-      </ol>
-    </div>
-  );
-}
-
 export function EssenceMotion(_props: IslandProps) {
   const reduced = useReducedMotion();
   const visualRef = useRef<HTMLDivElement>(null);
@@ -211,7 +104,7 @@ export function EssenceMotion(_props: IslandProps) {
             </Enter>
             <Enter as="div" className="essence-band__actions" delay={0.32}>
               <a href="/working-together" className="text-link essence-band__link">
-                Explore how <span aria-hidden="true">→</span>
+                How I uncover it <span aria-hidden="true">→</span>
               </a>
             </Enter>
             <Enter as="p" className="essence-band__aside" delay={0.36}>
@@ -220,8 +113,6 @@ export function EssenceMotion(_props: IslandProps) {
           </header>
           <HeroVisual reduced={reduced} visualRef={visualRef} videoRef={videoRef} />
         </div>
-
-        <InvestigationRow reduced={reduced} />
 
         <ul className="sr-only" aria-label="Layers surrounding the essence">
           {ESSENCE_LAYERS.map((layer) => (

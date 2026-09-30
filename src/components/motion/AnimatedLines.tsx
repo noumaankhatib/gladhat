@@ -42,8 +42,20 @@ export function AnimatedLines({
     );
   }
 
+  // The trigger lives on the heading, not on each line: a line starts
+  // translated below its overflow-hidden mask, so it is clipped out of
+  // view and a per-line whileInView would never fire.
+  const MotionTag = m[Tag];
+
   return (
-    <Tag className={className} aria-label={label} id={id}>
+    <MotionTag
+      className={className}
+      aria-label={label}
+      id={id}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+    >
       {lines.map((line, index) => (
         <span
           key={line.text}
@@ -52,15 +64,13 @@ export function AnimatedLines({
         >
           <m.span
             className={line.className ?? lineClassName}
-            initial={{ y: '115%' }}
-            whileInView={{ y: 0 }}
-            viewport={revealViewport}
+            variants={{ hidden: { y: '115%' }, visible: { y: 0 } }}
             transition={{ duration: 0.8, ease, delay: index * 0.14 }}
           >
             {line.text}
           </m.span>
         </span>
       ))}
-    </Tag>
+    </MotionTag>
   );
 }

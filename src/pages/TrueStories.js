@@ -75,37 +75,7 @@ export async function TrueStoriesPage() {
       </div>
     </section>
 
-    <section class="section work-portfolio" id="work-portfolio" aria-label="Case studies">
-      <div class="container">
-        <div class="work-filters" role="tablist" aria-label="Filter case studies">
-          ${filterButtons}
-        </div>
-
-        <div class="work-portfolio-grid" data-work-grid>
-          ${firstCards}
-          ${testimonialCard}
-          ${remainingCards}
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="work-proof" aria-label="Client outcomes">
-      <div class="container">
-        <div class="grid grid--2" style="margin: var(--space-lg) 0;">
-          <div class="stat reveal reveal--delay-1">
-            <div class="stat__value">$1.3M+</div>
-            <div class="stat__label">In sales generated for Server Factory</div>
-          </div>
-          <div class="stat reveal reveal--delay-2">
-            <div class="stat__value">50+</div>
-            <div class="stat__label">Qualified leads from a $7,500 pilot</div>
-          </div>
-        </div>
-        <p class="section-header__text" style="margin-top: var(--space-lg);">Real numbers from a real project. <a href="/server-factory" class="text-link">Read the Server Factory story <span aria-hidden="true">→</span></a></p>
-      </div>
-    </section>
-
-    <section class="section work-intro" id="stories-intro">
+    <section class="section work-intro page-intro" id="stories-intro">
       <div class="container">
         <div class="split reveal">
           <div class="split__text prose">
@@ -121,24 +91,50 @@ export async function TrueStoriesPage() {
             </ul>
           </div>
           <div class="split__image reveal reveal--delay-2">
-            <img src="${assetUrl('/images/stories.png')}" alt="Open Book" loading="lazy">
+            <img src="${assetUrl('/images/stories.png')}" alt="An old book lying open on a desk beside a candle" loading="lazy" width="1024" height="1024">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pullquote pullquote--ink" aria-label="Pull quote">
-      <p class="pullquote__text">They are true stories about the thinking behind the work, what changed along the way and what emerged.</p>
+    <section class="section work-portfolio" id="work-portfolio" aria-label="Case studies">
+      <div class="container">
+        <div class="work-filters" role="tablist" aria-label="Filter case studies">
+          ${filterButtons}
+        </div>
+
+        <div class="work-portfolio-grid" data-work-grid>
+          ${firstCards}
+          ${testimonialCard}
+          ${remainingCards}
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="work-cta">
+    <section class="section section--alt work-proof" id="work-proof" aria-label="Client outcomes">
       <div class="container">
-        <div class="prose reveal" style="text-align: center;">
-          <h2>Interested in a similar story?</h2>
+        <div class="grid grid--2 work-proof__stats">
+          <div class="stat reveal reveal--delay-1">
+            <div class="stat__value">$1.3M+</div>
+            <div class="stat__label">In sales generated for Server Factory</div>
+          </div>
+          <div class="stat reveal reveal--delay-2">
+            <div class="stat__value">50+</div>
+            <div class="stat__label">Qualified leads from a $7,500 pilot</div>
+          </div>
+        </div>
+        <p class="section-header__text work-proof__note">Real numbers from a real project. <a href="/server-factory" class="text-link">Read the Server Factory story <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <section class="section page-cta" id="work-cta">
+      <div class="container">
+        <div class="page-cta__inner reveal">
+          <h2 class="page-cta__title">Interested in a similar <span class="accent">story?</span></h2>
           <p>Every project starts with a conversation, not a brief.</p>
-          <div style="margin-top: var(--space-2xl); display: flex; flex-direction: column; align-items: center; gap: var(--space-md);">
-            <a href="/contact" class="btn btn--primary btn--lg" id="work-cta-btn">
-              Let's Talk <span class="btn-arrow">→</span>
+          <div class="page-actions page-actions--center">
+            <a href="/contact" class="btn btn--primary btn--lg btn--pill" id="work-cta-btn">
+              Let's talk <span class="btn-arrow">→</span>
             </a>
             <a href="/working-together" class="text-link">See how we'd work together <span aria-hidden="true">→</span></a>
           </div>

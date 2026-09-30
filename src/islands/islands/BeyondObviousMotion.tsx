@@ -145,7 +145,7 @@ export function BeyondObviousMotion(_props: IslandProps) {
           </Enter>
           <Enter as="div" className="beyond-band__actions" delay={0.32}>
             <a href="/working-together" className="text-link beyond-band__link">
-              Explore how <span aria-hidden="true">→</span>
+              Explore how I work <span aria-hidden="true">→</span>
             </a>
           </Enter>
         </header>

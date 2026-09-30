@@ -80,7 +80,7 @@ export const CONNECTING_OUTCOMES = [
 ];
 
 export const CONNECTING_INTRO =
-  'I help founders and leadership teams look beyond the obvious. I connect customer psychology, commercial objectives, positioning, communication, creative opportunities and partnerships.';
+  'I connect customer psychology, commercial objectives, positioning, communication, creative opportunities and partnerships.';
 
 export const CONNECTING_PHILOSOPHY =
   'The deliverable is never the starting point. The thinking is.';

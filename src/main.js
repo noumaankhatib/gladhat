@@ -8,6 +8,8 @@ import './styles/grid.css';
 import './styles/refinement.css';
 import './styles/editorial.css';
 import './styles/when-talk.css';
+import './styles/story.css';
+import './styles/pages.css';
 
 import { Router } from './router.js';
 import { Header } from './components/Header.js';

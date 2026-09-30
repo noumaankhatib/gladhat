@@ -30,7 +30,6 @@ import {
 } from '../utils/true-stories-content.js';
 import {
   ESSENCE_INTRO,
-  ESSENCE_INVESTIGATION,
   ESSENCE_LAYERS,
   ESSENCE_VIDEO,
   ESSENCE_VIDEO_POSTER,
@@ -107,45 +106,49 @@ export async function HomePage() {
       </defs>
     </svg>
 
-    <!-- 01 · Hero -->
-    <section class="hero hero--editorial hero--portal section-hero" id="section-hero" aria-label="Hero">
-      <video
-        class="hero__bg-video"
-        src="${assetUrl('/hero-video.mp4')}"
-        autoplay
-        muted
-        loop
-        playsinline
-        aria-hidden="true"
-      ></video>
-      <div class="hero__bg-video-overlay" aria-hidden="true"></div>
-      <div
-        class="hero__layout"
-        data-island="hero-motion"
-        data-hero-img="${heroVisual}"
-        data-hero-cta="${heroCta.replace(/"/g, '&quot;')}"
-        data-hero-sub="Most founders don't need more ideas.&#10;They need a different perspective."
-      >
-        <div class="hero__content">
-          <p class="hero__section-label">
-            <span class="hero__section-num" aria-hidden="true">01</span>
-            <span>Commercial Strategy</span>
-          </p>
-          <h1 class="hero__title">
-            A different way of <span class="accent">seeing.</span>
-          </h1>
-          <p class="hero__subtitle">
-            ${heroSub}
-          </p>
-          <div class="hero__actions">
-            <a href="/contact" class="btn btn--primary btn--lg btn--pill hero__cta" id="hero-cta">
-              ${heroCta} <span class="btn-arrow">→</span>
-            </a>
+    <!-- 01 · Hero — light editorial split: copy left, portal right -->
+    <section class="hero hero--editorial hero--story section-hero" id="section-hero" aria-label="Hero">
+      <div class="hero-story">
+        <div
+          class="hero__layout"
+          data-island="hero-motion"
+          data-hero-img="${heroVisual}"
+          data-hero-cta="${heroCta.replace(/"/g, '&quot;')}"
+          data-hero-sub="Most founders don't need more ideas.&#10;They need a different perspective."
+        >
+          <div class="hero__content">
+            <p class="hero__section-label">
+              <span class="hero__section-num" aria-hidden="true">01</span>
+              <span>Commercial Strategy</span>
+            </p>
+            <h1 class="hero__title">
+              A different way of <span class="accent">seeing.</span>
+            </h1>
+            <p class="hero__subtitle">
+              ${heroSub}
+            </p>
+            <div class="hero__actions">
+              <a href="/working-together" class="btn btn--primary btn--lg btn--pill hero__cta" id="hero-cta">
+                ${heroCta} <span class="btn-arrow">→</span>
+              </a>
+              <a href="/contact" class="text-link hero__secondary">Start a conversation <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
+
+        <figure class="hero-story__visual">
+          <div class="hero-story__arch">
+            <img src="${heroVisual}" alt="A person standing in a circular stone opening, looking out over mountains and a lake at sunrise." width="1400" height="1208" fetchpriority="high" decoding="async">
+          </div>
+          <figcaption class="story-note hero-story__note" aria-hidden="true">
+            <span>New perspectives<br>create new possibilities.</span>
+            <svg viewBox="0 0 60 40" width="52" height="34"><path d="M4 4 C 10 26, 30 34, 54 30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M46 24 L55 30 L46 35" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </figcaption>
+        </figure>
       </div>
 
-      <div class="marquee-container section-client-marquee hero__marquee" id="section-client-marquee" aria-label="Client marquee">
+      <div class="marquee-container section-client-marquee hero__marquee" id="section-client-marquee" aria-label="Businesses I have worked with">
+        <p class="hero__marquee-label">Trusted by founders at</p>
         <div class="marquee-track">
           ${Array(4).fill().map(() => `
             <div class="marquee-item">
@@ -211,7 +214,7 @@ export async function HomePage() {
               <h2 class="beyond-band__title">Better questions. Clearer <span class="accent">answers.</span></h2>
               <p class="beyond-band__intro">I help founders and leadership teams look beyond the obvious.</p>
               <div class="beyond-band__actions">
-                <a href="/working-together" class="text-link beyond-band__link">Explore how <span aria-hidden="true">→</span></a>
+                <a href="/working-together" class="text-link beyond-band__link">Explore how I work <span aria-hidden="true">→</span></a>
               </div>
             </header>
             <div class="beyond-band__visual-col">
@@ -256,7 +259,7 @@ export async function HomePage() {
                 <h2 class="essence-band__title">There's a clearer story in your <span class="accent">business.</span></h2>
                 <p class="essence-band__intro">${ESSENCE_INTRO}</p>
                 <div class="essence-band__actions">
-                  <a href="/working-together" class="text-link essence-band__link">Explore how <span aria-hidden="true">→</span></a>
+                  <a href="/working-together" class="text-link essence-band__link">How I uncover it <span aria-hidden="true">→</span></a>
                 </div>
                 <p class="essence-band__aside">Same business. Less noise. A clearer story.</p>
               </header>
@@ -265,27 +268,6 @@ export async function HomePage() {
                   <video class="essence-band__hero-video" src="${ESSENCE_VIDEO}" poster="${ESSENCE_VIDEO_POSTER}" muted playsinline loop autoplay preload="auto"></video>
                 </div>
               </div>
-            </div>
-            <div class="essence-band__investigation-panel">
-              <ol class="essence-band__investigation">
-                ${ESSENCE_INVESTIGATION.map(
-                  (item, index) => `
-                <li class="essence-band__investigation-item${index === 0 ? ' essence-band__investigation-item--active' : ''}">
-                  <button type="button" class="essence-band__investigation-btn" aria-current="${index === 0 ? 'true' : 'false'}">
-                    <span class="essence-band__investigation-body">
-                      <span class="essence-band__investigation-num" aria-hidden="true">${item.num}</span>
-                      <span class="essence-band__investigation-copy">
-                        <span class="essence-band__investigation-text">${item.text}</span>
-                        <span class="essence-band__investigation-detail">${item.detail}</span>
-                      </span>
-                    </span>
-                    <span class="essence-band__investigation-icon-wrap">
-                      <img class="essence-band__investigation-icon" src="${item.icon}" alt="${item.iconAlt}" loading="lazy" width="64" height="64">
-                    </span>
-                  </button>
-                </li>`
-                ).join('')}
-              </ol>
             </div>
             <ul class="sr-only" aria-label="Layers surrounding the essence">
               ${ESSENCE_LAYERS.map((layer) => `<li>${layer.label} — ${layer.sublabel}</li>`).join('')}
@@ -462,23 +444,24 @@ export async function HomePage() {
               <p class="sr-only">${TRUE_STORIES_VIDEO_ALT}</p>
             </div>
           </div>
-
-          <div class="true-stories-band__work">
-            <header class="true-stories-band__work-header">
-              <span class="true-stories-band__work-label">More real businesses</span>
-              <a href="/work" class="btn btn--outline btn--pill true-stories-band__work-cta">View all work <span class="btn-arrow">→</span></a>
-            </header>
-            <div class="true-stories-band__work-grid">
-              ${featuredWork.map((story, index) => `
-                <a class="work-card work-card--on-dark" href="${story.link}" style="--card-index: ${index}">
-                  <figure class="work-card__media">
-                    <img src="${story.img}" alt="${story.imgAlt}" loading="lazy" width="1200" height="800">
-                  </figure>
-                  <h3 class="work-card__client">${story.client}</h3>
-                  <span class="work-card__link">${story.title} <span class="work-card__arrow" aria-hidden="true">→</span></span>
-                </a>
-              `).join('')}
-            </div>
+        </div>
+      </div>
+      <div class="container true-stories-band__root true-stories-band__root--work">
+        <div class="true-stories-band__work">
+          <header class="true-stories-band__work-header">
+            <span class="true-stories-band__work-label">More real businesses</span>
+            <a href="/work" class="btn btn--outline btn--pill true-stories-band__work-cta">View all work <span class="btn-arrow">→</span></a>
+          </header>
+          <div class="true-stories-band__work-grid">
+            ${featuredWork.map((story, index) => `
+              <a class="work-card work-card--on-dark" href="${story.link}" style="--card-index: ${index}">
+                <figure class="work-card__media">
+                  <img src="${story.img}" alt="${story.imgAlt}" loading="lazy" width="1200" height="800">
+                </figure>
+                <h3 class="work-card__client">${story.client}</h3>
+                <span class="work-card__link">${story.title} <span class="work-card__arrow" aria-hidden="true">→</span></span>
+              </a>
+            `).join('')}
           </div>
         </div>
       </div>
