@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "fonts:sync": "bash scripts/sync-fonts.sh",
     "theme:sync": "bash scripts/sync-theme-assets.sh",
-    "build:theme": "npm run fonts:sync && vite build && npm run theme:sync",
+    "build:theme": "npm run fonts:sync && vite build && node scripts/prerender.mjs && npm run theme:sync",
     "postinstall": "npm run fonts:sync"
   },
   "dependencies": {

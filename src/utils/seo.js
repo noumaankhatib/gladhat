@@ -29,13 +29,34 @@ function setLinkTag(rel, href) {
   element.setAttribute('href', href);
 }
 
+/** Per-page share cards (1200x630) in public/og/. Unlisted pages (legal, 404) fall back. */
+const OG_IMAGES = {
+  '/': 'home',
+  '/when-we-should-talk': 'when-we-should-talk',
+  '/working-together': 'working-together',
+  '/work': 'work',
+  '/server-factory': 'server-factory',
+  '/firstlight': 'firstlight',
+  '/tonbo': 'tonbo',
+  '/ensights': 'ensights',
+  '/provengo': 'provengo',
+  '/more-stories': 'more-stories',
+  '/see-your-business-differently': 'see-your-business-differently',
+  '/about': 'about',
+  '/contact': 'contact',
+  '/theblog': 'theblog',
+};
+
 export function updateSEO({ title, description, path = '/', noindex = false }) {
   const fullTitle = title || 'Commercial Strategy Consultant for Founders | Gladhat';
   const fullDesc = description || 'Commercial strategy consultant helping founders use customer insight, positioning and clear messaging to uncover opportunities and make better decisions.';
   const origin = siteOrigin();
   const fullUrl = `${origin}${path}`;
   const site = peekSite();
-  const imageUrl = (site && site.seo_image && site.seo_image.url) || `${origin}${assetUrl('/images/logo_3d.png')}`;
+  const cardSlug = OG_IMAGES[path];
+  const imageUrl = cardSlug
+    ? `${origin}${assetUrl(`/og/${cardSlug}.jpg`)}`
+    : (site && site.seo_image && site.seo_image.url) || `${origin}${assetUrl('/images/logo_3d.png')}`;
 
   // 1. Basic Meta
   document.title = fullTitle;
@@ -48,6 +69,8 @@ export function updateSEO({ title, description, path = '/', noindex = false }) {
   setMetaTag('meta[property="og:description"]', 'property', 'og:description', fullDesc);
   setMetaTag('meta[property="og:url"]', 'property', 'og:url', fullUrl);
   setMetaTag('meta[property="og:image"]', 'property', 'og:image', imageUrl);
+  setMetaTag('meta[property="og:image:width"]', 'property', 'og:image:width', cardSlug ? '1200' : '');
+  setMetaTag('meta[property="og:image:height"]', 'property', 'og:image:height', cardSlug ? '630' : '');
   setMetaTag('meta[property="og:type"]', 'property', 'og:type', 'website');
   setMetaTag('meta[property="og:site_name"]', 'property', 'og:site_name', 'Gladhat');
 
