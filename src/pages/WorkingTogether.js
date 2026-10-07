@@ -113,7 +113,7 @@ export async function WorkingTogetherPage() {
             <div class="process-step__marker" aria-hidden="true">
               <span class="process-step__num">${step.num}</span>
             </div>
-            <div class="process-step__copy prose">
+            <div class="process-step__copy prose" data-num="${step.num}">
               <p class="process-step__label">${step.label}</p>
               <h3 class="process-step__title">${step.title}</h3>
               ${step.body}

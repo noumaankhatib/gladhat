@@ -149,6 +149,7 @@ export async function HomePage() {
 
       <div class="marquee-container section-client-marquee hero__marquee" id="section-client-marquee" aria-label="Businesses I have worked with">
         <p class="hero__marquee-label">Trusted by founders at</p>
+        <div class="marquee-viewport">
         <div class="marquee-track">
           ${Array(4).fill().map(() => `
             <div class="marquee-item">
@@ -174,6 +175,7 @@ export async function HomePage() {
               <span class="marquee-separator">✦</span>
             </div>
           `).join('')}
+        </div>
         </div>
       </div>
     </section>

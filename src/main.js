@@ -18,6 +18,7 @@ import { initScrollReveal } from './utils/animations.js';
 import { initInsightTriptych } from './utils/insight-triptych.js';
 import { initApproachSpotlight } from './utils/approach-spotlight.js';
 import { initFeaturedWork } from './utils/featured-work.js';
+import { initProcessStory } from './utils/process-story.js';
 import { initWorkbook } from './utils/workbook.js';
 import { updateSEO } from './utils/seo.js';
 import { getSite } from './services/content-service.js';
@@ -58,6 +59,7 @@ function render(pageContent, meta) {
   }
   // Initialise scroll animations
   requestAnimationFrame(() => initScrollReveal());
+  initProcessStory();
   window.dispatchEvent(new CustomEvent('gladhat:route-ready'));
   // Scroll to top
   window.scrollTo(0, 0);
